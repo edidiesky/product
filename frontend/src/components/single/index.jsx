@@ -4,7 +4,7 @@ import ProductInformation from "./ProductInformation";
 import ProductRecommendation from './ProductRecommendation'
 import Hero from "./Hero";
 import Footer from "../common/Footer";
-export default function ProductItem({ data }) {
+export default function ProductItem({ data, Products }) {
   return (
     <div
       style={{
@@ -17,7 +17,7 @@ export default function ProductItem({ data }) {
         <Hero data={data} />
         <div className="w-[95%] md:w-[80%] mx-auto max-w-custom">
           <ProductInformation data={data} />
-          <ProductRecommendation data={data} />
+          <ProductRecommendation data={data} Products={Products} />
           <Footer />
         </div>
       </div>

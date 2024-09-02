@@ -14,8 +14,8 @@ const ProductList = ({ products }) => {
     <div className="w-full py-16">
       <div className="w-[100%] flex items-start flex-col h-full gap-8 justify-between max-w-custom mx-auto">
         <div ref={containerRef} className="w-full">
-          {productData?.slice(0, 3)?.map((data, index) => {
-            const targetScale = 1 - (productData.length - 1) * 0.009;
+          {products?.slice(0, 3)?.map((data, index) => {
+            const targetScale = 1 - (products?.length - 1) * 0.009;
             return (
               <ProductCard
                 progress={scrollYProgress}

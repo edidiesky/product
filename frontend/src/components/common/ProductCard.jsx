@@ -46,16 +46,21 @@ const ProductCard = ({ data, index, progress, targetScale, range }) => {
           <Link
             style={{ scale }}
             className="flex flex-col items-center justify-center bg-[#fff] h-[400px] w-[400px] rounded-[50%] z-20 gap-4"
-            to={`/product/${data?.title}`}
+            to={`/product/${data?.id}`}
           >
             <div className="flex flex-col justify-center items-center gap-1">
               <h4 className="text-3xl font-bold">{data?.title}</h4>
               <span className="text-sm text-grey capitalize family1">
-                <span className="line-through"> $ 3.99 USD</span>$ 2.99 USD
+                <span className="line-through"> ${data?.price * 2}USD</span> $
+                {data?.price} USD
               </span>
             </div>
             <div className="w-32">
-              <Image src={data?.image} className="w-full object-cover" alt="" />
+              <Image
+                src={data?.images[0]}
+                className="w-full object-cover"
+                alt=""
+              />
             </div>
             <button
               style={{

@@ -1,12 +1,13 @@
 import React from "react";
 import HomeIndex from "../components/single";
-import { useGetSingleProductQuery } from "@/slices/productApiSlice";
+import { useGetAllProductQuery, useGetSingleProductQuery } from "@/slices/productApiSlice";
 import { useParams } from "react-router-dom";
 import Loader from "@/components/home/loader";
 const Single = () => {
   const { id } = useParams();
   // console.log(id);
   let { isLoading, isError, isSuccess, data } = useGetSingleProductQuery(id);
+  const { data: Products } = useGetAllProductQuery();
 
   if (isLoading) {
     return <Loader />;
@@ -25,7 +26,7 @@ const Single = () => {
   }
   return (
     <div>
-      <HomeIndex data={data} />
+      <HomeIndex data={data} Products={Products} />
     </div>
   );
 };

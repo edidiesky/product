@@ -11,28 +11,23 @@ const ProductHero = ({ data }) => {
         </h1>
         <div className="hero_info mx-auto flex flex-col gap-12">
           <div className="image_wrappers flex mx-auto flex-col justify-center items-center">
-            <Image
-              src="https://assets.website-files.com/5d85edd208e53eed3ae194a2/5e2c2fa3b0943f1845ba818e_coconut.png"
-              className="image_1"
-              alt=""
-            />
+            <div className="image_1">
+              <Image src={data?.images[0]} alt="" />
+            </div>
           </div>
-          <Image
-            src="https://assets.website-files.com/5d85edd208e53eed3ae194a2/5d88e2d6a39a48c1ef6f2e93_fruit-5.png"
-            alt=""
-            className="image image_2"
-          />
-          <Image
-            src="https://assets.website-files.com/5d85edd208e53eed3ae194a2/5d88e2d911bed5c49169466e_fruit-6.png"
-            alt=""
-            className="image image_3"
-          />
+          <div className="image image_2">
+            <Image src={data?.images[2]} alt="" />
+          </div>
+          <div className="image image_3">
+            <Image src={data?.images[2]} alt="" className="image image_3" />
+          </div>
+
           <h3
             // style={{ fontWeight: "300" }}
+            style={{color:`${data?.color}`}}
             className="text-2xl font-normal text-center w-[80%] max-w-[600px] mx-auto"
           >
-            Creamy, nutty, wild, warm-weather flavor from a far-away beach—real
-            coconut blended with cool Greek Yogurt.
+            {data?.description}
           </h3>
         </div>
       </div>

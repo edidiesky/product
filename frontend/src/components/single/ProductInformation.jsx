@@ -13,7 +13,7 @@ const ProductInformation = ({ data }) => {
     <ProductInformationStyles>
       <div className="product_info_top px-4 py-20 flex items-center justify-center flex-col gap-12">
         <h3 className="text-4xl text-center md:text-5xl family2 text-white">
-          Milkfat 0% • Protein 11g • Calories 110 • Calcium 15% DV
+          {data?.shortInfo}
         </h3>
         <form className="flex mx-auto h-[70px] md:h-[80px] w-[600px] items-center">
           <input type="number" className="family2" placeholder="1" />
@@ -27,43 +27,26 @@ const ProductInformation = ({ data }) => {
         </form>
       </div>
       <div className="product_info_center">
-        <div className="w-[90%] mx-auto pb-20 gap-12 md:grid-cols-custom grid">
+        <div className="w-[90%] md:w-[70%] mx-auto pb-20 gap-12 md:grid-cols-custom grid">
           <div className="flex flex-col gap-3">
             <h5 className="text-xl family1 font-bold uppercase">Nutrition</h5>
-            <h3 className="text-base md:text-lg family1 text-light">
-              Made with milk from cows not treated with rBST* Excellent source
-              of protein Includes live & active cultures, and three types of
-              probiotics No modified cornstarch or high fructose corn syrup Less
-              than 5% lactose—a perfect part of a very low lactose diet
-              Naturally low in sodium Contains live and active cultures: S.
-              Thermophilus, L. Bulgaricus, L. Acidophilus, Bifidus and L. Casei
+            <h3 className="text-xl md:text-2xl leading-[1.5] font-light family3">
+              {data?.nutrientInfo}{" "}
             </h3>
           </div>
           <div className="flex md:w-[300px] flex-col gap-3">
             <h5 className="text-xl family1 font-bold uppercase">Ingredients</h5>
-            <h3 className="text-base md:text-lg family1 text-light">
-              Made with milk from cows not treated with rBST* Excellent source
-              of protein Includes live & active cultures, and three types of
-              probiotics No modified cornstarch or high fructose corn syrup Less
-              than 5% lactose—a perfect part of a very low lactose diet
-              Naturally low in sodium Contains live and active cultures: S.
-              Thermophilus, L. Bulgaricus, L. Acidophilus, Bifidus and L. Casei
+            <h3 className="text-xl md:text-2xl leading-[1.5] font-light family3">
+              {data?.ingredients}{" "}
             </h3>
           </div>
         </div>
         <div className="w-full gap-12 items-center justify-space grid md:grid-cols-2">
           <div className="w-full">
-            <Image
-              src="https://assets.website-files.com/5d85edd208e53eed3ae194a2/5e284d1e01aae121dc9106f4_clear-glass-wine-cup-close-up-photography-2549275-p-800.jpeg"
-              alt=""
-              className="w-full"
-            />
+            <Image src={data?.images[4]} alt="" className="w-full" />
           </div>
           <div className="w-full">
-            <Image
-              className="w-full"
-              src="https://assets.website-files.com/5d85edd208e53eed3ae194a2/5e284dda1210d18422233a50_dose-juice-PuoE_Bp5B6k-unsplash-p-800.jpeg"
-            />
+            <Image className="w-full" src={data?.images[3]} />
           </div>
         </div>
       </div>

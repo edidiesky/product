@@ -16,7 +16,11 @@ const recommendData = [
   },
 ];
 
-const ProductRecommendation = ({ data }) => {
+const ProductRecommendation = ({ data, Products }) => {
+  const recommendedData = Products?.filter(
+    (product) => product?.id !== data?.id
+  );
+  // console.log(recommendedData);
   return (
     <ProductrecommendationStyles className="flex mx-auto justify-center item-center">
       <div className="Productrecommendation_wrapper w-[85%] mx-auto gap-12 flex flex-col">
@@ -27,18 +31,18 @@ const ProductRecommendation = ({ data }) => {
           MORE PRODUCTS WE RECOMMEND FOR YOU
         </h3>
         <div className="w-[85%] grid justify-center item-center mx-auto wrapper">
-          {recommendData.map((x, index) => {
+          {recommendedData?.slice(0, 2)?.map((x, index) => {
             return (
               <div
                 key={index}
                 className="flex flex-col gap-4 item-center justify-center recommendCard"
               >
                 <h3 className="text-xl md:text-3xl family3 text-center">
-                  {x.text}
+                  {x.title}
                   <span className="text-lg family1 block">${x.price}</span>
                 </h3>
                 <div className="w-[40%] mx-auto md:w-[50%] image_wrappers">
-                  <Image src={x.image} alt="" className="w-full" />
+                  <Image src={x.images[0]} alt="" className="w-full" />
                 </div>
               </div>
             );
