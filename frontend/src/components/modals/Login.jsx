@@ -6,9 +6,9 @@ import toast from "react-hot-toast";
 import Loader from "../home/loader";
 import { LoginFormInputData } from "@/constants/data/formdata";
 import {
-  offLoginModal,
-  onRegisterModal,
-} from "../../features/modals/modalSlice";
+  onLoginModal,
+  offRegisterModal,
+} from "../../slices/modalSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import Image from "../common/Image";

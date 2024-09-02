@@ -5,7 +5,7 @@ import { RxCross2 } from "react-icons/rx";
 import {
   onLoginModal,
   offRegisterModal,
-} from "../../features/modals/modalSlice";
+} from "../../slices/modalSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../home/loader";
 import { RegisterFormInputData } from "@/constants/data/formdata";
