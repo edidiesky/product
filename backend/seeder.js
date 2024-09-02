@@ -24,12 +24,12 @@ mongoose.connection.on("error", (error) =>
 const importData = async () => {
   try {
     // Use Prisma to insert our user data
-    await prisma.user.createMany({
-      data: user,
-    });
-    // await prisma.product.createMany({
-    //   data: productData,
+    // await prisma.user.createMany({
+    //   data: user,
     // });
+    await prisma.product.createMany({
+      data: productData,
+    });
     console.log("Data Imported!");
     process.exit();
   } catch (error) {
