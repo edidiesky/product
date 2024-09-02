@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { RxCross2 } from "react-icons/rx";
 import toast from "react-hot-toast";
 import Loader from "../home/loader";
-import { LoginFormInputData } from "@/constants/data/formdata";
 import {
   onLoginModal,
   offRegisterModal,
@@ -15,6 +14,7 @@ import Image from "../common/Image";
 import { ModalVariants } from "@/utils/framer";
 import { useLoginMutation } from "@/slices/userApiSlice";
 import { setUserCredentials } from "@/slices/authSlice";
+import { LoginFormInputData } from "@/data/formdata";
 
 const LoginModal = () => {
   const dispatch = useDispatch();

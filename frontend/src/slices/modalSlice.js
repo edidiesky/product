@@ -4,7 +4,7 @@ const initialState = {
   savedRooms: [],
   loginmodal: false,
   registermodal: false,
-  sellermodal: false,
+  cartmodal: false,
 };
 
 export const modalSlice = createSlice({
@@ -25,19 +25,19 @@ export const modalSlice = createSlice({
       state.registermodal = false;
     },
 
-    onSellerModal: (state, action) => {
-      state.sellermodal = true;
+    onCartModal: (state, action) => {
+      state.cartmodal = true;
     },
-    offSellerModal: (state, action) => {
-      state.sellermodal = false;
+    offCartModal: (state, action) => {
+      state.cartmodal = false;
     },
   },
 });
 
 export const {
   onLoginModal,
-  onSellerModal,
-  offSellerModal,
+  onCartModal,
+  offCartModal,
   offLoginModal,
   onRegisterModal,
   offRegisterModal,

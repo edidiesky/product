@@ -6,10 +6,10 @@ import { AnimatePresence } from "framer-motion";
 import React from "react";
 import { useSelector } from "react-redux";
 const Layout = () => {
-  const { loginmodal, registermodal, cartmodal } = useSelector((store) => store.modal);
+  // const { loginmodal, registermodal, cartmodal } = useSelector((store) => store.modal);
   return (
     <>
-      <AnimatePresence mode="wait">
+      {/* <AnimatePresence mode="wait">
         {loginmodal && (
           <LoginModal registermodal={registermodal} modal={loginmodal} />
         )}
@@ -19,7 +19,7 @@ const Layout = () => {
       </AnimatePresence>
       <AnimatePresence mode="wait">
         {cartmodal && <CartSidebar />}
-      </AnimatePresence>
+      </AnimatePresence> */}
       <div className="w-full">
         <Outlet />
       </div>

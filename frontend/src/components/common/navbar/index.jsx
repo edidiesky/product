@@ -9,7 +9,7 @@ import Button from "../Button";
 import Sidebar from "./Sidebar";
 import Curtain from "../../../animations/Curatin";
 import { FaShoppingBag } from "react-icons/fa";
-import { onCartModal } from "../../../features/modals/modalSlice";
+import { onCartModal } from "../../../slices/modalSlice";
 const linkData = [
   {
     title: "About",

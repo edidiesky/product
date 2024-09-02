@@ -2,13 +2,10 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { RxCross2 } from "react-icons/rx";
-import {
-  onLoginModal,
-  offRegisterModal,
-} from "../../slices/modalSlice";
+import { onLoginModal, offRegisterModal } from "../../slices/modalSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../home/loader";
-import { RegisterFormInputData } from "@/constants/data/formdata";
+import { RegisterFormInputData } from "@/data/formdata";
 import Image from "../common/Image";
 import { ModalVariants } from "@/utils/framer";
 import { useRegisterMutation } from "@/slices/userApiSlice";
