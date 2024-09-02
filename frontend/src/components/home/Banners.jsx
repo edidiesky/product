@@ -64,17 +64,19 @@ export default function Banners() {
   return (
     <div className="w-full md:mt-48">
       <div className="min-h-[400px] py-20 w-full mx-auto flex items-center justify-center relative">
-        <Image
-          // src={data?.backgroundImage}
-          src="https://assets.website-files.com/5d820ccf1097dd2dccadc680/5e2866783a68325c8d897d6d_dose-juice-mP0xREKwrqg-unsplash.jpg"
-          alt=""
-          className="absolute z-10 object-cover w-full h-full"
-        />
+        <div className="w-full h-full absolute">
+          <Image
+            // src={data?.backgroundImage}
+            src="https://assets.website-files.com/5d820ccf1097dd2dccadc680/5e2866783a68325c8d897d6d_dose-juice-mP0xREKwrqg-unsplash.jpg"
+            alt=""
+            className=""
+          />
+        </div>
         <div className="w-full px-8 z-20 h-full flex flex-col gap-12 items-center justify-center">
           <h2 className="text-5xl font-black family2">
             Say hello to good-for-you ingredients
           </h2>
-          <div className="w-full md:w-[76%] mx-auto grid grid-cols-2 md:grid-cols-5 items-center justify-center gap-8">
+          <div className="w-full md:w-[70%] mx-auto grid grid-cols-2 md:grid-cols-5 items-center justify-center gap-8">
             {banner1List?.map((data, index) => {
               return (
                 <div className="flex flex-col gap-4">
