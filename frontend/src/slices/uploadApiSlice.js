@@ -6,7 +6,7 @@ export const uploadApiSlice = apiSlice.injectEndpoints({
     uploadItem: builder.mutation({
       query: (data) => ({
         method: "POST",
-        credentials: true,
+        credentials: "include",
         body: data,
         url: `${UPLOAD_URL}`,
       }),

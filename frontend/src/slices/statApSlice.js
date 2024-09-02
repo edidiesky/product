@@ -6,7 +6,7 @@ export const StatApiSlice = apiSlice.injectEndpoints({
     getAllStat: builder.query({
       query: (data) => ({
         method: "GET",
-        credentials: true,
+        credentials: "include",
         url: `${STAT_URL}/history/${data?.id}`,
       }),
     }),

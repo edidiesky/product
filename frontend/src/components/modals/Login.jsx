@@ -7,6 +7,7 @@ import Loader from "../home/loader";
 import {
   onLoginModal,
   offRegisterModal,
+  offLoginModal,
 } from "../../slices/modalSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -91,10 +92,10 @@ const LoginModal = () => {
           >
             <RxCross2 />
           </div>
-          <div className="w-full sticky top-0 left-0 p-6 px-8 border-b flex items-center flex-col justify-between">
+          <div className="w-full sticky top-0 left-0 p-6 px-8 border-b flex items-start flex-col justify-between">
             <div className="flex flex-col">
-              <h3 className="text-2xl md:text-3xl family3">
-                Login to your account
+              <h3 className="text-2xl md:text-3xl font-bold family1">
+               Sign Up
               </h3>
             </div>
           </div>

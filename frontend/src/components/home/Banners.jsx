@@ -124,17 +124,19 @@ export default function Banners() {
               return (
                 <div className="flex items-center justify-center p-8 bg-[#fff1eb38] flex-col gap-4">
                   <div className=" rounded-[50%]">
-                    <Image
-                      src={data?.image}
-                      alt=""
-                      className="w-20 h-20 object-cover"
-                    />
+                    <div className="w-20">
+                      <Image
+                        src={data?.image}
+                        alt=""
+                        className=" object-cover"
+                      />
+                    </div>
                   </div>
                   <div className="w-full flex items-center justify-center flex-col gap-4">
                     <h5 className="text-base uppercase family1 text-[#257194]">
                       Step {index + 1}
                     </h5>
-                    <h4 className="text-2xl md:text-3xl font-black family2">
+                    <h4 className="text-2xl md:text-3xl text-center font-black family2">
                       {data?.title}
                     </h4>
                     <h4 className="text-xs md:text-sm text-center leading-[1.8] family3">

@@ -6,7 +6,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
     login: builder.mutation({
       query: (data) => ({
         method: "POST",
-        credentials: true,
+        credentials: "include",
         body: data,
         url: `${AUTH_URL}/login`,
       }),
@@ -29,7 +29,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         method: "GET",
         body: data,
-        credentials: true,
+        credentials: "include",
         url: `${USERS_URL}`,
       }),
     }),
@@ -37,7 +37,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         method: "GET",
         body: data,
-        credentials: true,
+        credentials: "include",
         url: `${USERS_URL}/${data?.id}`,
       }),
     }),
@@ -45,7 +45,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         method: "DELETE",
         body: data,
-        credentials: true,
+        credentials: "include",
         url: `${USERS_URL}/${data?.id}`,
       }),
     }),
@@ -53,7 +53,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         method: "PUT",
         body: data,
-        credentials: true,
+        credentials: "include",
         url: `${USERS_URL}/${data?.id}`,
       }),
     }),

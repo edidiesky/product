@@ -7,21 +7,21 @@ export const paymentApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         method: "POST",
         body: data,
-        credentials: true,
+        credentials: "include",
         url: `${PAYMENT_URL}`,
       }),
     }),
     getSinglePayment: builder.query({
       query: (data) => ({
         method: "GET",
-        credentials: true,
+        credentials: "include",
         url: `${PAYMENT_URL}/history/${data?.id}`,
       }),
     }),
     getAllPayment: builder.query({
       query: (data) => ({
         method: "GET",
-        credentials: true,
+        credentials: "include",
         url: `${PAYMENT_URL}/history`,
       }),
     }),
@@ -29,7 +29,7 @@ export const paymentApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         method: "PUT",
         body: data,
-        credentials: true,
+        credentials: "include",
         url: `${PAYMENT_URL}/history/success/${data?.id}`,
       }),
     }),
@@ -37,7 +37,7 @@ export const paymentApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         method: "PUT",
         body: data,
-        credentials: true,
+        credentials: "include",
         url: `${PAYMENT_URL}/history/failed/${data?.id}`,
       }),
     }),

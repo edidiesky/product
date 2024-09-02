@@ -6,21 +6,21 @@ export const productApiSlice = apiSlice.injectEndpoints({
     getAllProduct: builder.query({
       query: (data) => ({
         method: "GET",
-        credentials: true,
+        credentials: "include",
         url: `${PRODUCTS_URL}`,
       }),
     }),
     getAllAdminProduct: builder.query({
       query: (data) => ({
         method: "GET",
-        credentials: true,
+        credentials: "include",
         url: `${PRODUCTS_URL}/admin`,
       }),
     }),
     getSingleProduct: builder.query({
       query: (data) => ({
         method: "GET",
-        credentials: true,
+        credentials: "include",
         url: `${PRODUCTS_URL}/${data?.id}`,
       }),
     }),
@@ -28,7 +28,7 @@ export const productApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         method: "DELETE",
         body: data,
-        credentials: true,
+        credentials: "include",
         url: `${PRODUCTS_URL}/${data?.id}`,
       }),
     }),
@@ -36,7 +36,7 @@ export const productApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         method: "PUT",
         body: data,
-        credentials: true,
+        credentials: "include",
         url: `${PRODUCTS_URL}/${data?.id}`,
       }),
     }),

@@ -7,14 +7,14 @@ export const notificationApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         method: "POST",
         body: data,
-        credentials: true,
+        credentials: "include",
         url: `${NOTIFICATION_URL}`,
       }),
     }),
     getAllNotification: builder.query({
       query: (data) => ({
         method: "GET",
-        credentials: true,
+        credentials: "include",
         url: `${NOTIFICATION_URL}/admin`,
       }),
     }),
@@ -22,7 +22,7 @@ export const notificationApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         method: "DELETE",
         body: data,
-        credentials: true,
+        credentials: "include",
         url: `${NOTIFICATION_URL}/admin/${data?.id}`,
       }),
     }),

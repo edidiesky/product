@@ -9,7 +9,7 @@ import Button from "../Button";
 import Sidebar from "./Sidebar";
 import Curtain from "../../../animations/Curatin";
 import { FaShoppingBag } from "react-icons/fa";
-import { onCartModal } from "../../../slices/modalSlice";
+import { onCartModal, onLoginModal } from "../../../slices/modalSlice";
 const linkData = [
   {
     title: "About",
@@ -65,6 +65,7 @@ export default function index() {
           </div>
           <div className="flex gap-4 justify-end items-center">
             <div
+              onClick={() => dispatch(onLoginModal())}
               style={{
                 backdropFilter: "blur(54px)",
                 transition: "all .7s",

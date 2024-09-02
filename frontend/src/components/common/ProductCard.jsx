@@ -23,7 +23,7 @@ const ProductCard = ({ data, index, progress, targetScale, range }) => {
           color: `${data?.color}`,
           top: `calc(15vh + ${index * 100}px) `,
         }}
-        className="flex flex-col object-cover h-[700px] border-2 overflow-hidden lg:h-[700px] gap-4 relative rounded-t-[40px] w-full"
+        className="flex flex-col object-cover h-[700px] overflow-hidden lg:h-[700px] gap-4 relative rounded-t-[40px] w-full"
       >
         {data?.backgroundImage ? (
           <div className="absolute w-full h-full">
