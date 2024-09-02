@@ -4,8 +4,10 @@ import { useGetSingleProductQuery } from "@/slices/productApiSlice";
 import { useParams } from "react-router-dom";
 import Loader from "@/components/home/loader";
 const Single = () => {
-  const { id: ProductId } = useParams();
-  const { isLoading, isError, isSuccess, data } = useGetSingleProductQuery(ProductId);
+  const { id } = useParams();
+  // console.log(id);
+  let { isLoading, isError, isSuccess, data } = useGetSingleProductQuery(id);
+
   if (isLoading) {
     return <Loader />;
   }

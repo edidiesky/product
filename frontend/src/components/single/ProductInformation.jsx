@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import Curtain from "../../animations/Curatin";
 import { useDispatch, useSelector } from "react-redux";
 import { RxCross1 } from "react-icons/rx";
-import { onCartModal } from "../../features/modals/modalSlice";
+import { onCartModal } from "../../slices/modalSlice";
 import Image from "../common/Image";
 
 const ProductInformation = ({ data }) => {

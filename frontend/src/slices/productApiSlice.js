@@ -21,7 +21,7 @@ export const productApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         method: "GET",
         credentials: "include",
-        url: `${PRODUCTS_URL}/${data?.id}`,
+        url: `${PRODUCTS_URL}/${data}`,
       }),
     }),
     adminDeleteProduct: builder.mutation({
