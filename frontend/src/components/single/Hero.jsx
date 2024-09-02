@@ -4,7 +4,10 @@ import Image from "../common/Image";
 
 const ProductHero = ({ data }) => {
   return (
-    <ProductHeroStyles className="flex fixed min-h-[100vh] py-40 top-0 left-0 h-[100vh] w-screen justify-center items-center">
+    <ProductHeroStyles
+      key={data?.id}
+      className="flex fixed min-h-[100vh] py-40 top-0 left-0 h-[100vh] w-screen justify-center items-center"
+    >
       <div className="hero_wrapper flex h-full py-40 w-full justify-center items-center gap-24 flex-col">
         <h1 className="w-[85%] mx-auto family2 uppercase text text-center text-white">
           {data?.title}
@@ -24,7 +27,7 @@ const ProductHero = ({ data }) => {
 
           <h3
             // style={{ fontWeight: "300" }}
-            style={{color:`${data?.color}`}}
+            style={{ color: `${data?.color}` }}
             className="text-2xl font-normal text-center w-[80%] max-w-[600px] mx-auto"
           >
             {data?.description}

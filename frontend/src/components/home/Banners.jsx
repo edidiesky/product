@@ -62,7 +62,7 @@ const bannerlist2 = [
 
 export default function Banners() {
   return (
-    <div className="w-full md:mt-48">
+    <div className="w-full">
       <div className="min-h-[400px] py-20 w-full mx-auto flex items-center justify-center relative">
         <div className="w-full h-full absolute">
           <Image

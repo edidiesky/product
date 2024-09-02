@@ -15,7 +15,7 @@ export default function ProductItem({ data, Products }) {
       <Navbar />
       <div className="mt-40 w-full">
         <Hero data={data} />
-        <div className="w-[95%] md:w-[80%] mx-auto max-w-custom">
+        <div className="w-[95%] md:w-[70%] mx-auto max-w-custom">
           <ProductInformation data={data} />
           <ProductRecommendation data={data} Products={Products} />
           <Footer />
