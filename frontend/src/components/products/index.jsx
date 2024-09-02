@@ -12,7 +12,7 @@ export default function Productindex({ products }) {
     >
       <Navbar />
       <div className="pt-20">
-        <div className="w-[90%] mx-auto max-w-custom flex flex-col relative">
+        <div className="w-[90%] md:w-[70%] mx-auto max-w-custom flex flex-col relative">
           <ProductRecommendation products={products} />
           <Footer />
         </div>

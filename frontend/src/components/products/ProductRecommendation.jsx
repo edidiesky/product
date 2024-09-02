@@ -6,7 +6,7 @@ import { IoIosStarHalf } from "react-icons/io";
 import { productData } from "../../data/product";
 
 const ProductRecommendation = ({ products }) => {
-  console.log(products);
+  // console.log(products);
   return (
     <ProductrecommendationStyles
       style={{ gap: ".2rem" }}
@@ -46,7 +46,7 @@ const ProductRecommendation = ({ products }) => {
                         color={x.color}
                         className=" family3 text-center"
                       >
-                        {x.text}
+                        {x.title}
                       </h3>
                       <h5 className="fs-14 text-light family3 text-center">
                         ${x.price} USD
