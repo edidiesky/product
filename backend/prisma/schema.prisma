@@ -48,12 +48,13 @@ model Product {
   description       String
   price             Int
   category          String?
+  color             String?
   backgroundImage   String?
   background        String?
   shortInfo         String?
   nutrientInfo      String?
-  images             String
-  subImages         Json?
+  ingredients       String?
+  images            Json?
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
   availabilityCount Int?

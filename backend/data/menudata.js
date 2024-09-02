@@ -4,7 +4,7 @@ export const productData = [
     backgroundImage:
       "https://assets.website-files.com/5d820ccf1097dd2dccadc680/5e2868858f10442960f8d628_dose-juice-vTupkyHKyMk-unsplash.jpg",
     userid: "66d5ab30e7f92493f279f7a5",
-    price: "8.99",
+    price: 8.99,
     title: "Peach",
     description:
       "Strawberries, plump little hearts grown full and tender, red-ripe and ready-to-love, hidden beneath thick, delicious Greek Yogurt.",
@@ -30,7 +30,7 @@ export const productData = [
       "https://assets.website-files.com/5d820ccf1097dd2dccadc680/5e2867f28f1044c377f8d35b_dose-juice-gjaQ7RnVIkM-unsplash.jpg",
     userid: "66d5ab30e7f92493f279f7a5",
 
-    price: "12.99",
+    price: 12.99,
     title: "Strawberry",
     background: "hsla(14.361702127659573, 100.00%, 63.14%, 1.00)",
     description:
@@ -55,7 +55,7 @@ export const productData = [
       "https://assets.website-files.com/5d820ccf1097dd2dccadc680/5e28682785e4287303e23299_mae-mu-lOcmd4iJjpM-unsplash.jpg",
     userid: "66d5ab30e7f92493f279f7a5",
 
-    price: "14.56",
+    price: 14.5,
     title: "BlueBerry",
     background: "hsla(87.96116504854368, 50.24%, 59.80%, 1.00)",
     description:

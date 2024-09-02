@@ -29,10 +29,10 @@ const ProductRecommendation = ({ products }) => {
             </div>
           </div>
           <div className="w-full py-2 grid mx-auto gap-4 md:grid-cols-2">
-            {productData.map((x, index) => {
+            {products?.map((x, index) => {
               return (
                 <ProductCard
-                  backgroundColor={x.backgroundcolor}
+                  backgroundColor={x?.backgroundcolor}
                   className="flex w-full group item-center justify-center"
                   key={index}
                 >
@@ -42,14 +42,14 @@ const ProductRecommendation = ({ products }) => {
                       style={{ gap: ".5rem" }}
                     >
                       <h3
-                        style={{ fontSize: "26px", color: `${x.color}` }}
-                        color={x.color}
+                        style={{ fontSize: "26px", color: `${x?.color}` }}
+                        color={x?.color}
                         className=" family3 text-center"
                       >
-                        {x.title}
+                        {x?.title}
                       </h3>
                       <h5 className="fs-14 text-light family3 text-center">
-                        ${x.price} USD
+                        ${x?.price} USD
                       </h5>
                     </div>
                     <div className=" md:w-[200px] min-h-[200px] mx-auto">
@@ -57,7 +57,7 @@ const ProductRecommendation = ({ products }) => {
                         style={{ transition: "all .6s" }}
                         className="w-full group-hover:translate-y-0 translate-y-24"
                       >
-                        <Image src={x.image} alt="" />
+                        <Image src={x?.images[0]} alt="" />
                       </div>
                     </div>
                   </div>
