@@ -15,7 +15,7 @@ const ProductCard = ({ data, index, progress, targetScale, range }) => {
   const scale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const cardScale = useTransform(progress, range, [1, targetScale]);
   return (
-    <div className="w-full h-[100vh] sticky md:mb-24 top-0 left-0 flex">
+    <div className="w-full h-[100vh] sticky mb-20 md:mb-24 top-0 left-0 flex">
       <motion.div
         ref={containerRef}
         style={{
