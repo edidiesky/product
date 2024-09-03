@@ -48,6 +48,7 @@ model Product {
   description       String
   price             Int
   category          String?
+  subtitle          String?
   color             String?
   backgroundImage   String?
   background        String?

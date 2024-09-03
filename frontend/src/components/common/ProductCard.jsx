@@ -20,15 +20,15 @@ const ProductCard = ({ data, index, progress, targetScale, range }) => {
         ref={containerRef}
         style={{
           // scale: cardScale,
-          color: `${data?.color}`,
+          // color: `${data?.color}`,
           top: `calc(15vh + ${index * 100}px) `,
         }}
         className="flex flex-col object-cover h-[700px] overflow-hidden lg:h-[700px] gap-4 relative rounded-t-[40px] w-full"
       >
-        {data?.backgroundImage ? (
+        {data?.images[4] ? (
           <div className="absolute w-full h-full">
             <Image
-              src={data?.backgroundImage}
+              src={data?.images[3]}
               alt=""
               className="absolute z-10 object-cover w-full h-full"
             />

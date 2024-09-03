@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import Curtain from "../../animations/Curatin";
 import { styled } from "styled-components";
 import Image from "../common/Image";
+import { Link } from "react-router-dom";
 const Hero = ({ products }) => {
   const [tab, setTab] = useState(1);
 
   useEffect(() => {
     const interval = setTimeout(() => {
       setTab(tab === 2 ? 0 : tab + 1);
-    }, 4000);
+    }, 6000);
     return () => clearTimeout(interval);
   }, [setTab, tab]);
   const direction = tab * 100;
@@ -33,7 +34,7 @@ const Hero = ({ products }) => {
             >
               <div className="hero_wrapper max-w-custom mx-auto flex h-full py-4 w-full relative justify-center items-center gap-4 flex-col">
                 <h1 className="w-[100%] z-20 text-7xl md:text-9xl family2 uppercase font-black text text-center text-white">
-                  {data?.title} For Everyday
+                  {data?.subtitle}
                 </h1>
                 <h3
                   // style={{ fontWeight: "300" }}
@@ -42,7 +43,8 @@ const Hero = ({ products }) => {
                 >
                   {data?.description}
                 </h3>
-                <button
+                <Link
+                  to={`/product/${data?.id}`}
                   style={{
                     transition: "all 1.5s cubic-bezier(0.77, 0, 0.175, 1)",
                     background: `${data?.background}`,
@@ -50,7 +52,7 @@ const Hero = ({ products }) => {
                   className="h-20 w-52 text-white rounded-full uppercase family2 text-lg md:text-xl font-black"
                 >
                   <Curtain bgColor={"#000"}>View Product</Curtain>
-                </button>
+                </Link>
                 <div className="image image_2">
                   <Image src={data?.images[2]} alt="" />
                 </div>
