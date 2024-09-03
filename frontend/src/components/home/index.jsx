@@ -14,8 +14,8 @@ const HomeIndex = ({ products }) => {
         alt=""
         className="h-screen w-full fixed"
       /> */}
+      <Hero products={products} />
       <div className="w-[90%] md:w-[70%] mx-auto max-w-custom flex flex-col relative">
-        <Hero products={products} />
         <ProductList products={products} />
         <Banners />
         <Footer />

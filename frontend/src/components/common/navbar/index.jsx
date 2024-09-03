@@ -43,26 +43,7 @@ export default function index() {
             </h4>
           </NavLink>
 
-          <div
-            style={{
-              backdropFilter: "blur(54px)",
-            }}
-            className="items-center py-1 rounded-full px-8 bg-[rgba(255,255,255,.8)] justify-center hidden lg:flex gap-12"
-          >
-            {linkData?.map((list, index) => {
-              return (
-                <NavLink
-                  end
-                  to={`/${list.path}`}
-                  key={index}
-                  className={`text-base md:text-lg hover:text-grey family2 font-black flex items-center gap-2 p-3 px-3 rounded-[40px]`}
-                >
-                  {/* <img src={list?.icon} className="w-4" alt="" /> */}
-                  <AnimateText children={list?.title} />
-                </NavLink>
-              );
-            })}
-          </div>
+        
           <div className="flex gap-4 justify-end items-center">
             <div
               onClick={() => dispatch(onLoginModal())}
@@ -82,7 +63,7 @@ export default function index() {
                 backdropFilter: "blur(54px)",
                 transition: "all .7s",
               }}
-              className="w-16 shadow-sm cursor-pointer hover:text-white text-dark h-16 text-lg flex items-center justify-center rounded-full bg-[#ffffffb9]"
+              className="w-20 shadow-sm cursor-pointer hover:text-white text-dark h-20 text-lg flex items-center justify-center rounded-full bg-[#ffffffb9]"
             >
               <Curtain bgColor={"#000"}>
                 {" "}
@@ -96,3 +77,49 @@ export default function index() {
     </>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+  // <div
+  //   style={{
+  //     backdropFilter: "blur(54px)",
+  //   }}
+  //   className="items-center py-1 rounded-full px-8 bg-[rgba(255,255,255,.8)] justify-center hidden lg:flex gap-12"
+  // >
+  //   {linkData?.map((list, index) => {
+  //     return (
+  //       <NavLink
+  //         end
+  //         to={`/${list.path}`}
+  //         key={index}
+  //         className={`text-base md:text-lg hover:text-grey family2 font-black flex items-center gap-2 p-3 px-3 rounded-[40px]`}
+  //       >
+  //         {/* <img src={list?.icon} className="w-4" alt="" /> */}
+  //         <AnimateText children={list?.title} />
+  //       </NavLink>
+  //     );
+  //   })}
+  // </div>;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

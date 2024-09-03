@@ -19,7 +19,7 @@ const ProductHero = ({ data }) => {
             </div>
           </div>
           <div className="image image_2">
-            <Image src={data?.images[2]} alt="" />
+            <Image src={data?.images[1]} alt="" />
           </div>
           <div className="image image_3">
             <Image src={data?.images[2]} alt="" className="image image_3" />
