@@ -8,7 +8,7 @@ const ProductHero = ({ data }) => {
       key={data?.id}
       className="flex fixed min-h-[100vh] py-40 top-0 left-0 h-[100vh] w-screen justify-center items-center"
     >
-      <div className="hero_wrapper flex h-full py-40 w-full justify-center items-center gap-24 flex-col">
+      <div className="hero_wrapper flex relative h-full py-40 w-full justify-center items-center gap-24 flex-col">
         <h1 className="w-[85%] mx-auto family2 uppercase text text-center text-white">
           {data?.title}
         </h1>
