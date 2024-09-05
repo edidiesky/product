@@ -35,16 +35,35 @@ export default function index() {
   const dispatch = useDispatch();
   return (
     <>
-      <div className="pt-12 pb-4 fixed bg-transparent z-[80] top-0 left-0 w-full">
+      <div className="pt-4 pb-4 fixed bg-transparent z-[80] top-0 left-0 w-full">
         <div className="w-[100%] md:w-[90%] px-4 flex items-center gap-2 justify-between max-w-custom mx-auto">
           <NavLink to={"/"} className=" flex items-center gap-1 justify-start">
             <h4 className="flex flex-col text-3xl md:text-4xl family2 font-bold text-dark">
               Productos
             </h4>
           </NavLink>
+          <div
+            style={{
+              backdropFilter: "blur(54px)",
+            }}
+            className="items-center py-1 rounded-full px-8 bg-[rgba(255,255,255,.8)] justify-center hidden lg:flex gap-12"
+          >
+            {linkData?.map((list, index) => {
+              return (
+                <NavLink
+                  end
+                  to={`/${list.path}`}
+                  key={index}
+                  className={`text-base md:text-lg hover:text-grey family2 font-black flex items-center gap-2 p-3 px-3 rounded-[40px]`}
+                >
+                  {/* <img src={list?.icon} className="w-4" alt="" /> */}
+                  <AnimateText children={list?.title} />
+                </NavLink>
+              );
+            })}
+          </div>
 
-        
-          <div className="flex gap-4 justify-end items-center">
+          <div className="flex gap-1 md:gap-4 justify-end items-center">
             <div
               onClick={() => dispatch(onLoginModal())}
               style={{
@@ -52,7 +71,7 @@ export default function index() {
                 transition: "all .7s",
               }}
               // style={{ transition: "all .7s" }}
-              className="h-14 bg-[#ffffffb9] rounded-full hover:text-white w-32 family2 font-black relative text-xl"
+              className="h-14 bg-[#ffffffb9] rounded-full hover:text-white w-24 md:w-32 family2 font-black relative text-xl"
             >
               {/* <Button></Button> */}
               <Curtain bgColor={"#000"}> Sign Up</Curtain>
@@ -63,9 +82,9 @@ export default function index() {
                 backdropFilter: "blur(54px)",
                 transition: "all .7s",
               }}
-              className="w-20 shadow-sm cursor-pointer hover:text-white text-dark h-20 text-lg flex items-center justify-center rounded-full bg-[#ffffffb9]"
+              className="w-16 cursor-pointer text-dark h-16 text-lg flex items-center justify-center rounded-full "
             >
-              <Curtain bgColor={"#000"}>
+              <Curtain bgColor={"#fff"}>
                 {" "}
                 <FaShoppingBag />
               </Curtain>
@@ -78,48 +97,23 @@ export default function index() {
   );
 }
 
-
-
-
-
-
-
-
-
-
-
-  // <div
-  //   style={{
-  //     backdropFilter: "blur(54px)",
-  //   }}
-  //   className="items-center py-1 rounded-full px-8 bg-[rgba(255,255,255,.8)] justify-center hidden lg:flex gap-12"
-  // >
-  //   {linkData?.map((list, index) => {
-  //     return (
-  //       <NavLink
-  //         end
-  //         to={`/${list.path}`}
-  //         key={index}
-  //         className={`text-base md:text-lg hover:text-grey family2 font-black flex items-center gap-2 p-3 px-3 rounded-[40px]`}
-  //       >
-  //         {/* <img src={list?.icon} className="w-4" alt="" /> */}
-  //         <AnimateText children={list?.title} />
-  //       </NavLink>
-  //     );
-  //   })}
-  // </div>;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// <div
+//   style={{
+//     backdropFilter: "blur(54px)",
+//   }}
+//   className="items-center py-1 rounded-full px-8 bg-[rgba(255,255,255,.8)] justify-center hidden lg:flex gap-12"
+// >
+//   {linkData?.map((list, index) => {
+//     return (
+//       <NavLink
+//         end
+//         to={`/${list.path}`}
+//         key={index}
+//         className={`text-base md:text-lg hover:text-grey family2 font-black flex items-center gap-2 p-3 px-3 rounded-[40px]`}
+//       >
+//         {/* <img src={list?.icon} className="w-4" alt="" /> */}
+//         <AnimateText children={list?.title} />
+//       </NavLink>
+//     );
+//   })}
+// </div>;

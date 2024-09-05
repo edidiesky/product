@@ -1,14 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import Curtain from "../../animations/Curatin";
 import { useDispatch, useSelector } from "react-redux";
 import { RxCross1 } from "react-icons/rx";
 import { onCartModal } from "../../slices/modalSlice";
 import Image from "../common/Image";
+import toast from "react-hot-toast";
+import { addToCart } from "@/slices/cartSlice";
 
 const ProductInformation = ({ data }) => {
   const { cart } = useSelector((store) => store.cart);
+  const [quantity, setQuantity] = useState(1);
+  const [cartalert, setCartAlert] = useState(null);
   const dispatch = useDispatch();
+  const isProductAvailable = quantity <= data?.availabilityCount ? true : false;
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    dispatch(addToCart({ quantity: Number(quantity), ...data }));
+    // console.log({ quantity: Number(quantity), ...data });
+    setCartAlert(false);
+    const interval = setTimeout(() => {
+      setCartAlert(true);
+    }, 3000);
+    return () => clearTimeout(interval);
+  };
+  useEffect(() => {
+    if (cartalert) {
+      toast.success("Product added to Cart");
+      dispatch(onCartModal());
+    }
+  }, [cartalert]);
   return (
     <ProductInformationStyles>
       <div className="product_info_top px-4 py-20 flex items-center justify-center flex-col gap-12">
@@ -16,14 +37,24 @@ const ProductInformation = ({ data }) => {
           {data?.shortInfo}
         </h3>
         <form className="flex mx-auto h-[70px] md:h-[80px] w-[600px] items-center">
-          <input type="number" className="family2" placeholder="1" />
-          <div
-            // type="submit"
-            onClick={() => dispatch(onCartModal())}
+          <input
+            name="quantity"
+            type="number"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+            className="family2"
+            placeholder="1"
+          />
+          <button
+            type="submit"
+            disabled={!isProductAvailable}
+            onClick={handleAddToCart}
             className="form_btn flex items-center justify-center text-white text-xl uppercase family2"
           >
-            <Curtain> Add to Cart</Curtain>
-          </div>
+            <Curtain>
+              {cartalert === false ? "Adding to Cart ..." : "Add to Cart"}
+            </Curtain>
+          </button>
         </form>
       </div>
       <div className="product_info_center">
@@ -43,10 +74,14 @@ const ProductInformation = ({ data }) => {
         </div>
         <div className="w-full gap-12 items-center justify-space grid md:grid-cols-2">
           <div className="w-full">
-            <Image src={data?.images[4]} alt="" className="w-full" />
+            <Image
+              src={data?.images && data?.images[4]}
+              alt=""
+              className="w-full"
+            />
           </div>
           <div className="w-full">
-            <Image className="w-full" src={data?.images[3]} />
+            <Image className="w-full" src={data?.images && data?.images[3]} />
           </div>
         </div>
       </div>

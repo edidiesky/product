@@ -134,6 +134,7 @@ a.active {
   --gold-1: #be9874;
   --green-1: #00383c;
   --red: rgb(255, 56, 92);
+  --transition:cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .text-grey {

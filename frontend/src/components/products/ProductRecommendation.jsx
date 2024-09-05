@@ -213,7 +213,7 @@ const ProductrecommendationStyles = styled.div`
   .recommendCard {
     h3 {
       transform: translateY(50%);
-      transition: all 0.3s ease;
+      transition: all 0.3s var(--transition);
       @media (max-width: 780px) {
         transform: translateY(0%);
       }

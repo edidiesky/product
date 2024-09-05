@@ -11,8 +11,8 @@ export default function JournalIndex() {
       className="w-full"
     >
       <Navbar />
-      <div className="pt-20">
-        <div className="w-[90%] mx-auto max-w-custom flex flex-col relative">
+      <div className="pt-40">
+        <div className="w-[90%] md:w-[70%] mx-auto max-w-custom flex flex-col relative">
           <ProductRecommendation />
           <Footer />
         </div>

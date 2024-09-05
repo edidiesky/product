@@ -73,7 +73,7 @@ const ProductrecommendationStyles = styled.div`
 
       img {
         transform: translateY(30%);
-        transition: all 0.3s ease;
+        transition: all 0.4s var(--transition);
         @media (max-width: 780px) {
           transform: translateY(0%);
         }

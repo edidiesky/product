@@ -5,11 +5,14 @@ import { RxCross1 } from "react-icons/rx";
 import Image from "../common/Image";
 import { offCartModal } from "../../slices/modalSlice";
 import { slideLeft } from "@/utils/framer";
+import { Link } from "react-router-dom";
+import Curtain from "@/animations/Curatin";
 
 export default function CartSidebar() {
   const { cartmodal } = useSelector((store) => store.modal);
   const { cart } = useSelector((store) => store.cart);
   const dispatch = useDispatch();
+  // console.log(cart);
   return (
     <motion.div
       initial="initial"
@@ -20,9 +23,9 @@ export default function CartSidebar() {
     >
       <div
         onClick={() => dispatch(offCartModal())}
-        className="absolute w-full h-full z-10 bg-[rgba(0,0,0,.6)]"
+        className="absolute w-full h-full z-10 bg-[rgba(0,0,0,.1)]"
       ></div>
-      <div className="w-[90%] md:w-[450px] z-20 relative shadow-lg flex h-full bg-white flex-col gap-4">
+      <div className="w-[90%] md:w-[400px] z-20 relative shadow-sm flex h-full bg-white flex-col gap-4">
         <div className="py-6 px-4 border-b flex relative items-center justify-between w-full">
           <span className="text-2xl family2 font-bold">Your Cart</span>
           <span
@@ -32,8 +35,35 @@ export default function CartSidebar() {
             <RxCross1 />
           </span>
         </div>
-        {cart?.length !== 0 ? (
-          <div className="w-full flex flex-col gap-4"></div>
+        {cart?.cart?.length !== 0 ? (
+          <div className="w-full h-full flex justify-between flex-col gap-4">
+            <div className="w-full flex flex-col gap-4">
+              {cart?.cart?.map((cartitems, index) => {
+                return (
+                  <div className="w-full flex px-4 items-center gap-4">
+                    <div className="w-16">
+                      <Image src={cartitems?.images[0]} />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <h5 className="text-lg font-bold">{cartitems?.title}</h5>
+                      <h6 className="text-sm font-bold">
+                        {cartitems?.quantity}
+                      </h6>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <Link
+              to={`/`}
+              style={{
+                transition: "all 1.5s var(--transition)",
+              }}
+              className="h-16 w-[90%] mx-auto mb-2 text-white bg-[#000] rounded-full uppercase family2 text-lg md:text-xl font-black"
+            >
+              <Curtain bgColor={"var(--primary)"}>Proceed to Checkout</Curtain>
+            </Link>
+          </div>
         ) : (
           <div className="flex w-full h-full items-center justify-center flex-col gap-8">
             <div className="w-40">

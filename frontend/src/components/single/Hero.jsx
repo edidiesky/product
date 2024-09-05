@@ -9,20 +9,20 @@ const ProductHero = ({ data }) => {
       className="flex fixed min-h-[100vh] py-40 top-0 left-0 h-[100vh] w-screen justify-center items-center"
     >
       <div className="hero_wrapper flex relative h-full py-40 w-full justify-center items-center gap-24 flex-col">
-        <h1 className="w-[85%] mx-auto family2 uppercase text text-center text-white">
+        <h1 className="md:w-[85%] mx-auto family2 uppercase text text-center text-white">
           {data?.title}
         </h1>
         <div className="hero_info mx-auto flex flex-col gap-12">
           <div className="image_wrappers flex mx-auto flex-col justify-center items-center">
             <div className="image_1">
-              <Image src={data?.images[0]} alt="" />
+              <Image src={data?.images && data?.images[0]} alt="" />
             </div>
           </div>
           <div className="image image_2">
-            <Image src={data?.images[1]} alt="" />
+            <Image src={data?.images && data?.images[1]} alt="" />
           </div>
           <div className="image image_3">
-            <Image src={data?.images[2]} alt="" className="image image_3" />
+            <Image src={data?.images && data?.images[2]} alt="" className="image image_3" />
           </div>
 
           <h3
@@ -115,7 +115,7 @@ const ProductHeroStyles = styled.div`
 
     @media (max-width: 980px) {
       font-size: 5rem;
-      width: 80%;
+      width: 100%;
     }
   }
 `;

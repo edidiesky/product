@@ -20,7 +20,7 @@ const Hero = ({ products }) => {
         style={{
           gridTemplateColumns: "repeat(3, 100%)",
         }}
-        className="min-h-[500px] grid relative"
+        className="min-h-[700px] items-center justify-center grid relative"
       >
         {products?.slice(0, 3).map((data, index) => {
           return (
@@ -28,9 +28,9 @@ const Hero = ({ products }) => {
               key={index}
               style={{
                 transform: `translateX(-${direction}%)`,
-                transition: "all 1.5s cubic-bezier(0.77, 0, 0.175, 1)",
+                transition: "all 1.5s var(--transition)",
               }}
-              className="flex w-[100%] h-full relative justify-center items-center"
+              className="flex w-[100%] pt-20 h-full relative justify-center items-center"
             >
               <div className="hero_wrapper max-w-custom mx-auto flex h-full py-4 w-full relative justify-center items-center gap-4 flex-col">
                 <h1 className="w-[100%] z-20 text-7xl md:text-9xl family2 uppercase font-black text text-center text-white">
@@ -46,7 +46,7 @@ const Hero = ({ products }) => {
                 <Link
                   to={`/product/${data?.id}`}
                   style={{
-                    transition: "all 1.5s cubic-bezier(0.77, 0, 0.175, 1)",
+                    transition: "all 1.5s var(--transition)",
                     background: `${data?.background}`,
                   }}
                   className="h-20 w-52 text-white rounded-full uppercase family2 text-lg md:text-xl font-black"
@@ -66,7 +66,7 @@ const Hero = ({ products }) => {
             </ProductHeroStyles>
           );
         })}
-        <div className="absolute w-full z-40 flex items-center justify-center bottom-3 left-0">
+        <div className="absolute w-full z-40 flex items-center justify-center bottom-20 left-0">
           <div className="flex items-center justify-center  gap-2">
             {Array(3)
               ?.fill("")
