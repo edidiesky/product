@@ -38,7 +38,7 @@ export default function CartSidebar() {
         {cart?.cart?.length !== 0 ? (
           <div className="w-full h-full flex justify-between flex-col gap-4">
             <div className="w-full flex flex-col gap-4">
-              {cart?.cart?.map((cartitems, index) => {
+              {cart?.map((cartitems, index) => {
                 return (
                   <div className="w-full flex px-4 items-center gap-4">
                     <div className="w-16">

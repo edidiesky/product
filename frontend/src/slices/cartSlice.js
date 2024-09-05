@@ -12,11 +12,11 @@ export const cartSlice = createSlice({
     addToCart: (state, action) => {
       const item = action.payload;
       // find the element exist
-      const itemExist = state.cart?.cart?.find((i) => i.id === item.id);
+      const itemExist = state.cart.find((i) => i.id === item.id);
       // check if the element exist
       if (itemExist) {
         // update if the element exist
-        state.cart = state?.cart?.cart?.map((x) => (x.id === itemExist.id ? item : x));
+        state.cart = state.cart.map((x) => (x.id === itemExist.id ? item : x));
       } else {
         state.cart = [...state.cart, item];
       }
