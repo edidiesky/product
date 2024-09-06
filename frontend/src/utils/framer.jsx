@@ -63,14 +63,14 @@ export const slideLeft = {
     right: "0",
     transition: {
       duration: 1,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.77, 0, 0.175, 1],
     },
   },
   exit: {
     right: "100%",
     transition: {
       duration: 1,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.77, 0, 0.175, 1],
     },
   },
 };
@@ -84,12 +84,12 @@ export const ModalVariants = {
   enter: {
     opacity: 1,
     y: "0",
-    transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
+    transition: { duration: 1, ease: [0.77, 0, 0.175, 1] },
   },
   exit: {
     opacity: 1,
     y: "100vh",
 
-    transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
+    transition: { duration: 1, ease: [0.77, 0, 0.175, 1] },
   },
 };

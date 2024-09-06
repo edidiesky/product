@@ -10,7 +10,7 @@ import Curtain from "@/animations/Curatin";
 
 export default function CartSidebar() {
   const { cartmodal } = useSelector((store) => store.modal);
-  const { cart } = useSelector((store) => store.cart);
+  const { cart, totalPrice } = useSelector((store) => store.cart);
   const dispatch = useDispatch();
   // console.log(cart);
   return (
@@ -47,6 +47,7 @@ export default function CartSidebar() {
                     <div className="flex flex-col gap-1">
                       <h5 className="text-lg font-bold">{cartitems?.title}</h5>
                       <h6 className="text-sm font-bold">
+                        <span className="text-grey family1 font-normal">Quantity: </span>
                         {cartitems?.quantity}
                       </h6>
                     </div>
@@ -54,15 +55,23 @@ export default function CartSidebar() {
                 );
               })}
             </div>
-            <Link
-              to={`/`}
-              style={{
-                transition: "all 1.5s var(--transition)",
-              }}
-              className="h-16 w-[90%] mx-auto mb-2 text-white bg-[#000] rounded-full uppercase family2 text-lg md:text-xl font-black"
-            >
-              <Curtain bgColor={"var(--primary)"}>Proceed to Checkout</Curtain>
-            </Link>
+            <div className="w-full py-3 pt-4 px-4  border-t  flex flex-col gap-4">
+              <div className="w-full flex items-center justify-between">
+                <span className="text-lg family1 font-normal">Sub Total</span>
+                <span className="font-bold family1">$ {totalPrice} USD</span>
+              </div>
+              <Link
+                to={`/`}
+                style={{
+                  transition: "all 1.5s var(--transition)",
+                }}
+                className="h-16 w-[100%] mx-auto text-white bg-[#000] rounded-full uppercase family2 text-lg md:text-xl font-black"
+              >
+                <Curtain bgColor={"var(--primary)"}>
+                  Proceed to Checkout
+                </Curtain>
+              </Link>
+            </div>
           </div>
         ) : (
           <div className="flex w-full h-full items-center justify-center flex-col gap-8">

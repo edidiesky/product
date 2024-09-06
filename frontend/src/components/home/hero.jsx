@@ -14,13 +14,14 @@ const Hero = ({ products }) => {
   }, [setTab, tab]);
   const direction = tab * 100;
   // console.log(direction);
+  // console.log(products)
   return (
     <div className="w-full overflow-hidden">
       <div
         style={{
           gridTemplateColumns: "repeat(3, 100%)",
         }}
-        className="min-h-[700px] items-center justify-center grid relative"
+        className="min-h-[900px] items-center justify-center grid relative"
       >
         {products?.slice(0, 3).map((data, index) => {
           return (
