@@ -119,3 +119,49 @@ export const DashboardProfileInputData = [
     required: false,
   },
 ];
+
+export const BillingInputData = [
+  {
+    id: 4,
+    name: "phone",
+    type: "name",
+    text: "Phone Number",
+    label: "Phone Number",
+    required: false,
+  },
+  {
+    id: 41,
+    name: "street",
+    type: "name",
+    text: "Street Number",
+    label: "Street Number",
+    required: false,
+  },
+  {
+    id: 42,
+    name: "city",
+    type: "name",
+    text: " City",
+    label: " City",
+    required: false,
+  },
+  {
+    id: 326,
+    name: "zip",
+    placeholder: "Please input your postalcode",
+    type: "text",
+    text: " Zip Code",
+    label: " Zip Code",
+    required: false,
+  },
+
+  {
+    id: 36,
+    name: "postalcode",
+    placeholder: "Please input your postalcode",
+    type: "text",
+    text: "Postal Code",
+    label: "Postal Code",
+    required: false,
+  },
+];
