@@ -32,37 +32,8 @@ export const LargeSlideup = {
     y: "70%",
   },
 };
-export const slideLeft = {
-  initial: {
-    opacity: 0,
-    x: "50%",
-  },
-  animate: (i) => ({
-    opacity: 1,
-    x: "0%",
-    transition: { duration: 0.8 },
-  }),
-  exit: {
-    opacity: 0,
-    x: "50%",
-  },
-};
 
-export const slideRight = {
-  initial: {
-    opacity: 0,
-    x: "-50%",
-  },
-  animate: (i) => ({
-    opacity: 1,
-    x: "0%",
-    transition: { duration: 0.8, delay: i * 0.4 },
-  }),
-  exit: {
-    opacity: 0,
-    x: "-50%",
-  },
-};
+
 export const smallslideup2 = {
   initial: {
     opacity: 0,
@@ -163,7 +134,7 @@ export const scaleAnimations = {
   },
 };
 
-export const slide = {
+export const ModalVariants = {
   initial: {
     y: "100vh",
   },
@@ -183,15 +154,22 @@ export const slide = {
   },
 };
 
-export const opacity1 = {
+export const slideLeft = {
   initial: {
-    opacity: 0,
+    right: "100%",
   },
-  enter: (i) => ({
-    opacity: 1,
-    transition: { duration: 1.5, delay: i * 0.4 },
-  }),
+  enter: {
+    right: "0",
+    transition: {
+      duration: 1,
+      ease: [0.77, 0, 0.175, 1],
+    },
+  },
   exit: {
-    opacity: 1,
+    right: "100%",
+    transition: {
+      duration: 1,
+      ease: [0.77, 0, 0.175, 1],
+    },
   },
 };

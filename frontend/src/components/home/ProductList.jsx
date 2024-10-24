@@ -11,7 +11,7 @@ const ProductList = ({ products }) => {
     offset: ["start start", "end end"],
   });
   return (
-    <div className="w-full py-16">
+    <div className="w-full">
       <div className="w-[100%] flex items-start flex-col h-full gap-8 justify-between max-w-custom mx-auto">
         <div ref={containerRef} className="w-full">
           {products?.slice(0, 3)?.map((data, index) => {

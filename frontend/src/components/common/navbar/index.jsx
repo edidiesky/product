@@ -105,24 +105,3 @@ export default function index() {
     </>
   );
 }
-
-// <div
-//   style={{
-//     backdropFilter: "blur(54px)",
-//   }}
-//   className="items-center py-1 rounded-full px-8 bg-[rgba(255,255,255,.8)] justify-center hidden lg:flex gap-12"
-// >
-//   {linkData?.map((list, index) => {
-//     return (
-//       <NavLink
-//         end
-//         to={`/${list.path}`}
-//         key={index}
-//         className={`text-base md:text-lg hover:text-grey family2 font-black flex items-center gap-2 p-3 px-3 rounded-[40px]`}
-//       >
-//         {/* <img src={list?.icon} className="w-4" alt="" /> */}
-//         <AnimateText children={list?.title} />
-//       </NavLink>
-//     );
-//   })}
-// </div>;

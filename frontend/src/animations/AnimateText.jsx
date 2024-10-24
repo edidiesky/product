@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { slideup, LargeSlideUp } from "@/constants/utils/framer";
+import { slideup, LargeSlideup } from "@/constants/utils/framer";
 
 // animattions to staggerText
 const AnimateText = ({ children, type }) => {
@@ -18,7 +18,7 @@ const AnimateText = ({ children, type }) => {
           return (
             <div key={index} className="inline-flex hide relative">
               <motion.span
-                variants={LargeSlideUp}
+                variants={LargeSlideup}
                 custom={index}
                 initial="initial"
                 animate={inView ? "animate" : "exit"}

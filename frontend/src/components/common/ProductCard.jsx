@@ -15,13 +15,13 @@ const ProductCard = ({ data, index, progress, targetScale, range }) => {
   const scale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const cardScale = useTransform(progress, range, [1, targetScale]);
   return (
-    <div className="w-full h-[100vh] sticky mb-20 md:mb-24 top-0 left-0 flex">
+    <div className="w-full sticky top-0 left-0 flex">
       <motion.div
         ref={containerRef}
         style={{
           // scale: cardScale,
           // color: `${data?.color}`,
-          top: `calc(15vh + ${index * 100}px) `,
+          top: `calc(15vh + ${index * 30}px) `,
         }}
         className="flex flex-col object-cover h-[700px] overflow-hidden lg:h-[700px] gap-4 relative rounded-t-[40px] w-full"
       >

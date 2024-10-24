@@ -107,7 +107,7 @@ const ProductHeroStyles = styled.div`
       width: 55%;
       object-fit: cover;
       left: 400px;
-      bottom: -10px;
+      bottom: 40px;
       width: 14rem;
       height: 14rem;
       @media (max-width: 780px) {
@@ -118,8 +118,8 @@ const ProductHeroStyles = styled.div`
       }
     }
     &.image_2 {
-      right: 40px;
-      top: 5%;
+      right: 200px;
+      top: 10%;
       width: 14rem;
       height: 14rem;
       z-index: 50 !important;
