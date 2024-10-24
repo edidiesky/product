@@ -1,6 +1,10 @@
 # Productos Commerce
+Productoss is a conceptualization of a drink commerce that demonstrate how the effectiveness of caching strategies can be used to speed up a website reducing network request, and load on database.
 
-Productos is a dynamic marketplace for food lovers and sellers. It allows users to explore various menus, place orders, and leave reviews. Sellers are given the priviledges when authenticated to see foods, manage food items, see reviews, receive payment, see list of customers, and lastly see how their products(food items) has been purchased over a period of time
+I implemented it to look deeper into caching mechanism on both the frontend of the application using React Query to reduce network request to the backend, and also on the backend using Redis and Upstash for storing frequent requested data from the client
+Productoss is a conceptualization of a drink commerce that demonstrate how the effectiveness of caching strategies can be used to speed up a website reducing network request, and load on database. I implemented it to look deeper into caching mechanism on both the frontend of the application using React Query to reduce network request to the backend, and also on the backend using Redis and Upstash for storing frequent requested data from the client
+Skills: Reactjs · Redis · Nodejs · Redux · Tailwind CSS · Prisma ORM · Express
+
 
 ![Project Screenshot](/Tasttrove_1.png)
 
