@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { slideup, LargeSlideup } from "@/constants/utils/framer";
+import { LargeSlideup, slideup } from "@/utils/framer";
+// import { slideup, LargeSlideup } from "@/constants/utils/framer";
 
 // animattions to staggerText
 const AnimateText = ({ children, type }) => {
