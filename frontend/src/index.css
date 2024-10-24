@@ -1,9 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100;200;300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100;200;300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -92,15 +90,14 @@ a.active {
   object-fit: cover !important;
 }
 
-
 .family3 {
-  font-family: 'Merriweather', sans-serif;
+  font-family: "Merriweather", sans-serif;
 }
 .family1 {
-  font-family:"Work Sans", sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 .family2 {
-  font-family: 'Big Shoulders Text', cursive;
+  font-family: "Big Shoulders Text", cursive;
 }
 
 * {
@@ -129,12 +126,12 @@ a.active {
 :root {
   --grey-1: #eae5df;
   --dark-1: #000000;
-  --primary: hsla(14.361702127659573, 100.00%, 63.14%, 1.00);
+  --primary: hsla(14.361702127659573, 100%, 63.14%, 1);
   --background_2: #0e0d0c;
   --gold-1: #be9874;
   --green-1: #00383c;
   --red: rgb(255, 56, 92);
-  --transition:cubic-bezier(0.77, 0, 0.175, 1);
+  --transition: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .text-grey {
@@ -160,26 +157,25 @@ body {
 textarea {
   border: 1px solid rgba(0, 0, 0, 0.2) !important;
   padding: 0.6rem;
-   font-family:"Work Sans", sans-serif;
+  font-family: "Work Sans", sans-serif;
   border-radius: 10px;
 }
 input {
   border: none;
-  outline: none;
-   font-family:"Work Sans", sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 input::placeholder {
   font-size: inherit;
   font-weight: normal;
   color: #000;
-   font-family:"Work Sans", sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 .input {
   border: 1px solid rgba(0, 0, 0, 0.2) !important;
   height: 55px;
   padding: 0 1rem;
   border-radius: 10px;
-   font-family:"Work Sans", sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 .btn {

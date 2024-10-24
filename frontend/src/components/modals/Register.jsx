@@ -74,107 +74,83 @@ const RegisterModal = () => {
         initial="initial"
         animate={registermodal ? "enter" : "exit"}
         exit="exit"
-        className="guestModalCard grid md:grid-cols-2"
+        className="guestModalCard"
       >
-        <div className="w-full h-full relative md:block hidden">
-          <div className="bg-[rgba(0,0,0,.5)] z-20 absolute w-full h-full"></div>
-          <Image
-            alt=""
-            loading="lazy"
-            src={
-              "	https://avada.website/restaurant/wp-content/uploads/sites/112/2020/04/slider72x-scaled.jpg"
-            }
-            className=""
-          />
-        </div>
-        <div className="w-full mx-auto h-[550px] flex flex-col">
-          <div className="w-full sticky top-0 left-0 p-8 px-8 border-b flex border-[rgba(0,0,0,.2)] items-center justify-between">
-            <h3 className="text-2xl md:text-3xl font-bold family1">
+        <div className="w-full mx-auto flex flex-col">
+          <div className="w-full sticky top-0 left-0 p-8 px-8 flex  items-center justify-between">
+            <h3 className="text-2xl md:text-3xl font-bold font-booking_font4">
               Sign Up
-              <span className="block text-sm font-normal family1">
+              <span className="block text-sm pt-3 font-normal family1">
                 Register to your account and check out your bookings
               </span>
             </h3>
-            <div
-              className="cross absolute top-2 right-3"
-              onClick={handleClearAlert}
-            >
+            <div className="cross" onClick={handleClearAlert}>
               <RxCross2 />
             </div>
           </div>
-          <div className="w-full overflow-hidden">
-            <div className="w-full overflow-auto py-8 items-center justify-center flex">
-              <form
-                onSubmit={handleFormSubmision}
-                className="w-[90%] mx-auto p-4 md:px-2 grid items-start md:grid-cols-1 gap-12"
-              >
-                <div className="w-full grid grid-cols-2 gap-4">
-                  {RegisterFormInputData?.map((input, index) => {
-                    return (
-                      <label
-                        key={index}
-                        htmlFor={input.label}
-                        className="text-sm family1 rounded-[10px] flex flex-col gap-2 text-dark"
-                      >
-                        <span className="text-dark ">{input.label}</span>
-                        <input
-                          className="w-full input rounded-md text-dark
+          <div className="w-full pb-6 flex">
+            <form
+              onSubmit={handleFormSubmision}
+              className="w-[90%] mx-auto p-4 pb-4 grid md:grid-cols-1 gap-8"
+            >
+              <div className="w-full grid md:grid-cols-2 gap-4">
+                {RegisterFormInputData?.map((input, index) => {
+                  return (
+                    <label
+                      key={index}
+                      htmlFor={input.label}
+                      className="text-sm family1 flex flex-col gap-2 text-dark"
+                    >
+                      <span className="text-dark font-bold">{input.label}</span>
+                      <input
+                        className="w-full rounded-md input text-dark
                            font-normal text-sm"
-                          required={true}
-                          name={input?.name}
-                          id={input.label}
-                          value={formvalue[input.name]}
-                          type={input.type}
-                          placeholder={input.label}
-                          onChange={handleFormChange}
-                        ></input>
-                      </label>
-                    );
-                  })}
-                </div>
-                <div className="w-full flex items-center justify-center flex-col gap-3">
-                  <button
-                    disabled={isLoading || noEntry}
-                    type="submit"
-                    className="p-4 hover:opacity-[.5] px-8 flex items-center justify-center w-full cursor-pointer btn btn-4 rounded-[40px] family1 font-bold text-white"
-                  >
-                    {isLoading ? (
-                      <div className="w-full flex items-center justify-center gap-3">
-                        In Progress
-                        <Loader type={"dots"} />
-                      </div>
-                    ) : (
-                      "Sign Up"
-                    )}
-                  </button>
-                  <div className="w-full flex items-center justify-start gap-2">
-                    <span className="text-sm font-normal text-dark">
-                      Already a Member?{" "}
-                      <span
-                        onClick={handleLoginModal}
-                        style={{ textDecoration: "underline" }}
-                        className="font-bold family1 cursor-pointer"
-                        // href={"#"}
-                      >
-                        Sign In
-                      </span>
-                    </span>
-                  </div>
-                </div>
-                {/* <div className="option text-dark">or</div> */}
-                {/* <div
-                  // onClick={() => signIn("google")}
-                  className="p-4 px-8 items-center flex justify-center gap-4 w-full cursor-pointer btn text-[#fff] rounded-[40px] family1 font-bold border border-[rgba(0,0,0,.9)]"
+                        required={true}
+                        name={input?.name}
+                        id={input.label}
+                        value={formvalue[input.name]}
+                        type={input.type}
+                        placeholder={input.label}
+                        onChange={handleFormChange}
+                      ></input>
+                    </label>
+                  );
+                })}
+              </div>
+              <div className="w-full flex items-center justify-center flex-col gap-3">
+                <button
+                  type="submit"
+                  className="p-4 px-8 flex items-center justify-center w-full cursor-pointer btn bg-[#000] rounded-[40px] family1 font-bold text-white"
                 >
-                  <FcGoogle fontSize={"24px"} />
-                  <AnimateText children={"Continue with Google"} />
-                </div> */}
-                {/* <div className="p-4 px-8 items-center flex justify-center gap-4 w-full cursor-pointer btn text-[#000] rounded-[10px] family1 font-bold border border-[rgba(0,0,0,.9)]">
+                  Sign Up
+                </button>
+                <div className="w-full flex items-center justify-start gap-2">
+                  <span className="text-sm font-normal text-dark">
+                    Already a Member?{" "}
+                    <span
+                      onClick={handleLoginModal}
+                      style={{ textDecoration: "underline" }}
+                      className="font-bold family1 cursor-pointer"
+                      // href={"#"}
+                    >
+                      Sign In
+                    </span>
+                  </span>
+                </div>
+              </div>
+              {/* <div className="option text-dark">or</div>
+              <div
+                // onClick={() => signIn("google")}
+                className="p-4 px-8 items-center flex justify-center gap-4 w-full cursor-pointer btn text-[#fff] rounded-[40px] family1 font-bold border border-[rgba(0,0,0,.9)]"
+              >
+                <FcGoogle fontSize={"24px"} />
+                <AnimateText children={"Continue with Google"} />
+              </div> */}
+              {/* <div className="p-4 px-8 items-center flex justify-center gap-4 w-full cursor-pointer btn text-[#000] rounded-[10px] family1 font-bold border border-[rgba(0,0,0,.9)]">
                 <FaGithub fontSize={"28px"} />
                 Continue with Github
               </div>{" "} */}
-              </form>
-            </div>
+            </form>
           </div>
         </div>
       </motion.div>
@@ -182,12 +158,12 @@ const RegisterModal = () => {
   );
 };
 const RegisterModalStyles = styled(motion.div)`
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
   position: fixed;
   left: 0;
   display: flex;
-  z-index: 49000000;
+  z-index: 4900;
   align-items: center;
   justify-content: center;
   top: 0;
@@ -220,18 +196,19 @@ const RegisterModalStyles = styled(motion.div)`
     }
   }
   .guestModalCard {
-    max-width: 1000px;
-    min-width: 900px;
-    overflow: hidden;
+    max-width: 400px;
+    min-width: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     background: #fff;
+    height: 600px;
+    gap: 2rem;
     border-radius: 20px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.4);
     position: relative;
-    @media (max-width: 980px) {
-      max-width: 400px;
-      min-width: 400px;
-    }
-    @media (max-width: 480px) {
+    @media (max-width: 580px) {
       max-width: 90%;
       min-width: 90%;
     }

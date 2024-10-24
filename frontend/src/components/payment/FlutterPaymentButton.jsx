@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
 import { useSelector, useDispatch } from "react-redux";
 import toast from "react-hot-toast";
-import { CreatePayment } from "@/features/payment/paymentReducer";
 import { useNavigate } from "react-router-dom";
 import Loader from "../home/loader";
-import { handleClearPaymentAlert } from "@/features/payment/paymentSlice";
 const FlutterPaymentButton = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -14,8 +12,9 @@ const FlutterPaymentButton = () => {
   }, []);
   const { currentUser } = useSelector((store) => store.auth);
   const { reservation } = useSelector((store) => store.reservation);
-  const { payment, createpaymentisSuccess, createpaymentisLoading } =
-    useSelector((store) => store.payment);
+  const createpaymentisLoading = false
+  // const { payment, createpaymentisSuccess, createpaymentisLoading } =
+  //   useSelector((store) => store.payment);
   const [flutterpaymentsuccess, setFlutterPaymentSuccess] = useState(false);
   const config = {
     public_key: import.meta.env.VITE_FLUTTER_PUBLIC_KEY,
@@ -37,29 +36,29 @@ const FlutterPaymentButton = () => {
 
   const handleFlutterwavePayment = useFlutterwave(config);
   const handleCreateOrderPayment = () => {
-    dispatch(
-      CreatePayment({
-        reservationid: reservation?.id,
-        amount: reservation?.totalPrice * 500,
-        currency: "NGN",
-      })
-    );
+    // dispatch(
+    //   CreatePayment({
+    //     reservationid: reservation?.id,
+    //     amount: reservation?.totalPrice * 500,
+    //     currency: "NGN",
+    //   })
+    // );
   };
-useEffect(() => {
-  if (flutterpaymentsuccess) {
-    const timer = setTimeout(() => {
-      navigate(
-        `/payment-success/${payment?.id}?reservationid=${payment?.reservationid}`
-      );
-    }, 3000);
+  // useEffect(() => {
+  //   if (flutterpaymentsuccess) {
+  //     const timer = setTimeout(() => {
+  //       navigate(
+  //         `/payment-success/${payment?.id}?reservationid=${payment?.reservationid}`
+  //       );
+  //     }, 3000);
 
-    return () => clearTimeout(timer);
-  }
-}, [flutterpaymentsuccess, navigate]);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [flutterpaymentsuccess, navigate]);
   // console.log(payment);
   return (
     <button
-      disabled={createpaymentisSuccess}
+      // disabled={createpaymentisSuccess}
       onClick={() => {
         handleCreateOrderPayment();
         handleFlutterwavePayment({
@@ -70,7 +69,6 @@ useEffect(() => {
               // Handle successful payment here
               setFlutterPaymentSuccess(true);
               toast.success("Payment Successfully!! Redirecting Soon...");
-            
             } else {
               toast.error("Payment Failed");
             }

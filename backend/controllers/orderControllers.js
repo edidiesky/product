@@ -2,8 +2,6 @@
 import dotenv from "dotenv";
 dotenv.config();
 import prisma from "../prisma/index.js";
-import redisClient from "../utils/redisClient.js";
-
 import expressAsyncHandler from "express-async-handler";
 
 // User
@@ -28,29 +26,21 @@ const CreatePayment = expressAsyncHandler(async (req, res) => {
 
 const GetPaymentHistoryForAdmin = expressAsyncHandler(async (req, res) => {
   // instantiate the form data from the request body
-  const cacheKey = "order";
+  const payment = await prisma.payment.findMany({
+    where: {
+      sellerId: req.user.userId,
+    },
+    include: {
+      user: true,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+  res.setHeader("Content-Type", "text/html");
+  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
 
-  const cachedOrder = await redisClient.get(cacheKey);
-  if (cachedOrder) {
-    return res.json(cachedOrder);
-  } else {
-    const payment = await prisma.payment.findMany({
-      where: {
-        sellerId: req.user.userId,
-      },
-      include: {
-        user: true,
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-    });
-    res.setHeader("Content-Type", "text/html");
-    res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
-    await redisClient.set(cacheKey, payment, { EX: 3600 });
-
-    res.status(200).json({ payment });
-  }
+  res.status(200).json({ payment });
 });
 
 const GetSinglePaymentDetails = expressAsyncHandler(async (req, res) => {

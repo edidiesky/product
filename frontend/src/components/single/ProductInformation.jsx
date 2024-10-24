@@ -3,26 +3,31 @@ import { styled } from "styled-components";
 import Curtain from "../../animations/Curatin";
 import { useDispatch, useSelector } from "react-redux";
 import { RxCross1 } from "react-icons/rx";
-import { onCartModal } from "../../slices/modalSlice";
+import { onCartModal, onLoginModal } from "../../slices/modalSlice";
 import Image from "../common/Image";
 import toast from "react-hot-toast";
 import { addToCart } from "@/slices/cartSlice";
 
 const ProductInformation = ({ data }) => {
   const { cart } = useSelector((store) => store.cart);
+  const { currentUser } = useSelector((store) => store.auth);
   const [quantity, setQuantity] = useState(1);
   const [cartalert, setCartAlert] = useState(null);
   const dispatch = useDispatch();
   const isProductAvailable = quantity <= data?.availabilityCount ? true : false;
   const handleAddToCart = (e) => {
     e.preventDefault();
-    dispatch(addToCart({ quantity: Number(quantity), ...data }));
-    // console.log({ quantity: Number(quantity), ...data });
-    setCartAlert(false);
-    const interval = setTimeout(() => {
-      setCartAlert(true);
-    }, 3000);
-    return () => clearTimeout(interval);
+    if (!currentUser) {
+      dispatch(onLoginModal());
+    } else {
+      dispatch(addToCart({ quantity: Number(quantity), ...data }));
+      // console.log({ quantity: Number(quantity), ...data });
+      setCartAlert(false);
+      const interval = setTimeout(() => {
+        setCartAlert(true);
+      }, 3000);
+      return () => clearTimeout(interval);
+    }
   };
   useEffect(() => {
     if (cartalert) {

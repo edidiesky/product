@@ -1,30 +1,21 @@
 import asyncHandler from "express-async-handler";
 import prisma from "../prisma/index.js";
-import redisClient from "../utils/redisClient.js";
 
 // @description  Get all product
 // @route  GET /product
 // @access  Public
 const GetAllProduct = asyncHandler(async (req, res) => {
-  const cacheKey = "product";
-  const cachedProduct = await redisClient.get(cacheKey);
-  if (cachedProduct) {
-    return res.json(cachedProduct);
-  } else {
-    const Product = await prisma.product.findMany({
-      orderBy: {
-        createdAt: "desc",
-      },
-      include: {
-        user: true,
-      },
-    });
-    await redisClient.set(cacheKey, Product, { EX: 3600 });
-
-    res.setHeader("Content-Type", "text/html");
-    res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
-    return res.json(Product);
-  }
+  const Product = await prisma.product.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+    include: {
+      user: true,
+    },
+  });
+  res.setHeader("Content-Type", "text/html");
+  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+  return res.json(Product);
 });
 
 // @description  Get all product for the Admin
@@ -34,32 +25,25 @@ const GetAllAdminProducts = asyncHandler(async (req, res) => {
   const limit = req.query.limit || 4;
   const page = req.query.page || 1;
   const skip = (page - 1) * limit;
-  const cacheKey = `seller_product_${req.user?.userId}`;
 
   const totalProduct = await prisma.product.count({});
-  const cachedProduct = await redisClient.get(cacheKey);
-  if (cachedProduct) {
-    return res.json(cachedProduct);
-  } else {
-    const Product = await prisma.product.findMany({
-      skip: skip,
-      take: limit,
-      where: {
-        userid: req.user?.userId,
-      },
-      include: {
-        user: true,
-      },
-    });
 
-    const noOfPages = Math.ceil(totalProduct / limit);
-    res.setHeader("Content-Type", "text/html");
-    res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
-    const result = { Product, noOfPages, totalProduct };
-    await redisClient.set(cacheKey, result, { EX: 3600 });
+  const Product = await prisma.product.findMany({
+    skip: skip,
+    take: limit,
+    where: {
+      userid: req.user?.userId,
+    },
+    include: {
+      user: true,
+    },
+  });
 
-    res.status(200).json(result);
-  }
+  const noOfPages = Math.ceil(totalProduct / limit);
+  res.setHeader("Content-Type", "text/html");
+  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+
+  res.status(200).json({ Product, noOfPages, totalProduct });
 });
 
 // @description  Create product
@@ -135,6 +119,7 @@ const DeleteProduct = asyncHandler(async (req, res) => {
 
   res.status(200).json({ msg: "The Product has been successfully deleted" });
 });
+
 
 export {
   GetAllProduct,

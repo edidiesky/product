@@ -8,6 +8,7 @@ import {
   onLoginModal,
   offRegisterModal,
   offLoginModal,
+  onRegisterModal,
 } from "../../slices/modalSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -71,52 +72,39 @@ const LoginModal = () => {
         initial="initial"
         animate={loginmodal ? "enter" : "exit"}
         exit="exit"
-        data-test="loginmodal"
-        className="LoginModalCard grid md:grid-cols-2"
+        className="guestModalCard"
       >
-        <div className="w-full h-full relative md:block hidden">
-          <div className="bg-[rgba(0,0,0,.5)] z-20 absolute w-full h-full"></div>
-          <Image
-            alt=""
-            loading="lazy"
-            src={
-              "	https://avada.website/restaurant/wp-content/uploads/sites/112/2020/04/slider72x-scaled.jpg"
-            }
-            className=""
-          />
-        </div>
-        <div className="w-full mx-auto overflow-hidden flex flex-col">
+        <div className="w-full mx-auto relative flex gap-8 flex-col">
           <div
-            className="cross absolute z-[30000000000] top-3 right-3"
+            className="cross absolute -top-5 z-[500] right-5"
             onClick={handleClearAlert}
           >
             <RxCross2 />
           </div>
-          <div className="w-full sticky top-0 left-0 p-6 px-8 border-b flex items-start flex-col justify-between">
-            <div className="flex flex-col">
-              <h3 className="text-2xl md:text-3xl font-bold family1">
-               Sign Up
-              </h3>
-            </div>
+          <div className="w-full top-0 left-0 relative px-8 flex items-center justify-between">
+            <h3 className="text-3xl font-booking_font4 font-bold">
+              Sign In
+              <span className="block text-sm font-normal max-w-[250px] pt-1 family1">
+                Login to your account and check out your bookings
+              </span>
+            </h3>
           </div>
           <div className="w-full overflow-auto h-[350px]  flex">
             <form
               onSubmit={handleFormSubmision}
-              className="w-[100%] mx-auto p-4 md:px-8 pb-8 flex flex-col gap-6"
+              className="w-[90%] mx-auto p-4 pb-8 flex flex-col gap-6"
             >
-              <div className="w-full flex flex-col gap-2">
+              <div className="w-full flex flex-col gap-4">
                 {LoginFormInputData?.map((input, index) => {
                   return (
                     <label
                       key={index}
                       htmlFor={input.label}
-                      className="text-sm family1 rounded-[10px] flex flex-col gap-2 text-dark"
+                      className="text-sm family1 flex flex-col gap-2 text-dark"
                     >
-                      <span className="text-dark font-semibold">
-                        {input.label}
-                      </span>
+                      <span className="text-dark font-bold">{input.label}</span>
                       <input
-                        className="w-full input rounded-md text-dark
+                        className="w-full rounded-md input text-dark
                            font-normal text-sm"
                         required={true}
                         name={input?.name}
@@ -132,28 +120,19 @@ const LoginModal = () => {
               </div>
               <div className="w-full flex items-center justify-center flex-col gap-3">
                 <button
-                  data-test="loginmodal_button"
                   type="submit"
-                  disabled={isLoading || noEntry}
-                  className="p-4 px-8 hover:opacity-[.5] text-[#fff] flex items-center justify-center w-full cursor-pointer 
-                   bg-[#000] rounded-[40px] family1 font-bold"
+                  className="p-4 px-8 text-base flex items-center justify-center w-full cursor-pointer 
+                  btn btn_2 bg-[#000] rounded-[40px] family1 text-white"
                 >
-                  {isLoading ? (
-                    <div className="w-full flex items-center justify-center gap-3">
-                      In Progress
-                      <Loader type={"dots"} />
-                    </div>
-                  ) : (
-                    "Sign In"
-                  )}
+                Sign In
                 </button>
                 <div className="w-full flex items-center justify-start gap-2">
                   <span className="text-sm font-normal text-dark">
-                    Not yet a Member?{" "}
+                    <span className="text-grey">Not yet a Member?</span>{" "}
                     <span
                       onClick={handleLoginModal}
                       style={{ textDecoration: "underline" }}
-                      className="font-bold family1 cursor-pointer"
+                      className="family1 font-bold cursor-pointer"
                       // href={"#"}
                     >
                       Sign Up
@@ -167,13 +146,13 @@ const LoginModal = () => {
               <div
                 // onClick={() => signIn("google")}
                 className="p-4 px-8 items-center flex justify-center gap-4
-                 w-full cursor-pointer btn rounded-[40px] family1 font-bold"
+                 w-full cursor-pointer btn text-[#fff] rounded-[40px] family1"
               >
                 <FcGoogle fontSize={"24px"} />
                 <AnimateText children={"Continue with Google"} />
               </div> */}
 
-              {/* <div className="p-4 px-8 items-center flex justify-center gap-4 w-full cursor-pointer btn text-[#000] rounded-[10px] font-booking_font font-normal border border-[rgba(0,0,0,.9)]">
+              {/* <div className="p-4 px-8 items-center flex justify-center gap-4 w-full cursor-pointer btn text-[#000] rounded-[10px] family1 font-normal border border-[rgba(0,0,0,.9)]">
                 <FaGithub fontSize={"28px"} />
                 Continue with Github
               </div> */}
@@ -184,14 +163,13 @@ const LoginModal = () => {
     </LoginModalStyles>
   );
 };
-
 const LoginModalStyles = styled(motion.div)`
   width: 100vw;
   height: 100vh;
   position: fixed;
   left: 0;
   display: flex;
-  z-index: 49000000;
+  z-index: 4900;
   align-items: center;
   justify-content: center;
   top: 0;
@@ -223,40 +201,36 @@ const LoginModalStyles = styled(motion.div)`
       transform: translateY(-50%);
     }
   }
-  .LoginModalCard {
-    max-width: 800px;
-    min-width: 700px;
+  .guestModalCard {
+    max-width: 420px;
+    min-width: 400px;
     display: flex;
-    height: 500px;
+    height: 580px;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
     background: #fff;
-    /* gap: 2rem; */
-    border-radius: 15px;
-    overflow: hidden;
+    gap: 2rem;
+    border-radius: 20px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.4);
     position: relative;
-    @media (max-width: 980px) {
-      max-width: 400px;
-      min-width: 400px;
-    }
-    @media (max-width: 480px) {
+    @media (max-width: 580px) {
       max-width: 90%;
       min-width: 90%;
     }
     .cross {
-      width: 34px;
-      height: 34px;
+      width: 2.3rem;
+      height: 2.3rem;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-
       &:hover {
         background: #d9d8d8;
       }
       svg {
-        font-size: 16px;
+        font-size: 20px;
       }
     }
     .deleteCardBottom {

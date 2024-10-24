@@ -20,8 +20,7 @@ const linkData = [
   },
 ];
 
-
-export default function Sidebar({setBar, bar}) {
+export default function Sidebar({ setBar, bar }) {
   const { currentUser } = useSelector((store) => store.auth);
 
   return (

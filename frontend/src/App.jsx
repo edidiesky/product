@@ -6,6 +6,7 @@ import DashboardLayout from "./screens/DashboardLayout";
 import { ProtectRoute } from "./lib/ProtectRoute";
 const HomeWrapper = lazy(() => import("./screens/Home"));
 const Products = lazy(() => import("./screens/Products"));
+const Payment = lazy(() => import("./screens/Payment"));
 const SingleWrapper = lazy(() => import("./screens/Single"));
 const Journal = lazy(() => import("./screens/Journal"));
 // // PaymentSuccess
@@ -37,6 +38,14 @@ export default function App() {
             element={
               <Suspense fallback={<></>}>
                 <SingleWrapper />
+              </Suspense>
+            }
+          />
+          <Route
+            path="checkout"
+            element={
+              <Suspense fallback={<></>}>
+                <Payment />
               </Suspense>
             }
           />

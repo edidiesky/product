@@ -4,15 +4,14 @@ import { styled } from "styled-components";
 import Image from "../common/Image";
 import { Link } from "react-router-dom";
 const Hero = ({ products }) => {
-  const [tab, setTab] = useState(1);
+  const [tab, setTab] = useState(0);
 
   useEffect(() => {
     const interval = setTimeout(() => {
-      setTab(tab === 2 ? 0 : tab + 1);
+      setTab(tab === 2 ? 1 : tab + 1);
     }, 6000);
     return () => clearTimeout(interval);
   }, [setTab, tab]);
-  const direction = tab * 100;
   // console.log(direction);
   // console.log(products)
   return (
@@ -21,50 +20,55 @@ const Hero = ({ products }) => {
         style={{
           gridTemplateColumns: "repeat(3, 100%)",
         }}
-        className="min-h-[900px] items-center justify-center grid relative"
+        className="min-h-[900px] grid relative"
       >
         {products?.slice(0, 3).map((data, index) => {
           return (
-            <ProductHeroStyles
+            <div
               key={index}
               style={{
-                transform: `translateX(-${direction}%)`,
+                transform: `translateX(-${tab === 0 ? 0 : tab * 100}%)`,
                 transition: "all 1.5s var(--transition)",
               }}
-              className="flex w-[100%] pt-20 h-full relative justify-center items-center"
+              className="w-full"
             >
-              <div className="hero_wrapper max-w-custom mx-auto flex h-full py-4 w-full relative justify-center items-center gap-4 flex-col">
-                <h1 className="w-[100%] z-20 text-7xl md:text-9xl family2 uppercase font-black text text-center text-white">
-                  {data?.subtitle}
-                </h1>
-                <h3
-                  // style={{ fontWeight: "300" }}
-                  style={{ color: `${data?.color}` }}
-                  className="text-2xl z-20 font-normal text-center w-[80%] max-w-[600px] mx-auto"
+              <ProductHeroStyles className="flex w-[100%] pt-20 h-full relative justify-center items-center">
+                <div
+                  key={index}
+                  className="hero_wrapper max-w-custom mx-auto flex h-full py-4 w-full relative justify-center items-center gap-4 flex-col"
                 >
-                  {data?.description}
-                </h3>
-                <Link
-                  to={`/product/${data?.id}`}
-                  style={{
-                    transition: "all 1.5s var(--transition)",
-                    background: `${data?.background}`,
-                  }}
-                  className="h-20 w-52 text-white rounded-full uppercase family2 text-lg md:text-xl font-black"
-                >
-                  <Curtain bgColor={"#000"}>View Product</Curtain>
-                </Link>
-                <div className="image image_2">
-                  <Image src={data?.images[2]} alt="" />
+                  <h1 className="w-[100%] z-20 text-7xl md:text-9xl family2 uppercase font-black text text-center text-white">
+                    {data?.subtitle}
+                  </h1>
+                  <h3
+                    // style={{ fontWeight: "300" }}
+                    style={{ color: `${data?.color}` }}
+                    className="text-2xl z-20 font-normal text-center w-[80%] max-w-[600px] mx-auto"
+                  >
+                    {data?.description}
+                  </h3>
+                  <Link
+                    to={`/product/${data?.id}`}
+                    style={{
+                      transition: "all 1.5s var(--transition)",
+                      background: `${data?.background}`,
+                    }}
+                    className="h-20 w-52 text-white rounded-full uppercase family2 text-lg md:text-xl font-black"
+                  >
+                    <Curtain bgColor={"#000"}>View Product</Curtain>
+                  </Link>
+                  <div className="image image_2">
+                    <Image src={data?.images[2]} alt="" />
+                  </div>
+                  <div className="image image_3">
+                    <Image src={data?.images[0]} alt="" />
+                  </div>
+                  <div className="image image_1">
+                    <Image src={data?.images[1]} alt="" />
+                  </div>
                 </div>
-                <div className="image image_3">
-                  <Image src={data?.images[0]} alt="" />
-                </div>
-                <div className="image image_1">
-                  <Image src={data?.images[1]} alt="" />
-                </div>
-              </div>
-            </ProductHeroStyles>
+              </ProductHeroStyles>
+            </div>
           );
         })}
         <div className="absolute w-full z-40 flex items-center justify-center bottom-20 left-0">

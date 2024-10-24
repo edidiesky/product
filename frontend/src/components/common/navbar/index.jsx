@@ -64,18 +64,27 @@ export default function index() {
           </div>
 
           <div className="flex gap-1 md:gap-4 justify-end items-center">
-            <div
-              onClick={() => dispatch(onLoginModal())}
-              style={{
-                backdropFilter: "blur(54px)",
-                transition: "all .7s",
-              }}
-              // style={{ transition: "all .7s" }}
-              className="h-14 bg-[#ffffffb9] rounded-full hover:text-white  w-32 family2 font-black relative text-xl"
-            >
-              {/* <Button></Button> */}
-              <Curtain bgColor={"#000"}> Sign Up</Curtain>
-            </div>
+            {currentUser ? (
+              <div className=" relative">
+                <div className="w-16 h-16 family1 rounded-full flex bg-[#000] text-lg text-white items-center justify-center">
+                  {currentUser?.name?.split("")[0]}
+                </div>
+              </div>
+            ) : (
+              <div
+                onClick={() => dispatch(onLoginModal())}
+                style={{
+                  backdropFilter: "blur(54px)",
+                  transition: "all .7s",
+                }}
+                // style={{ transition: "all .7s" }}
+                className="h-14 bg-[#ffffffb9] rounded-full hover:text-white  w-32 family2 font-black relative text-xl"
+              >
+                {/* <Button></Button> */}
+                <Curtain bgColor={"#000"}> Sign Up</Curtain>
+              </div>
+            )}
+
             <div
               onClick={() => dispatch(onCartModal())}
               style={{

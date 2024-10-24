@@ -6,15 +6,15 @@ const initialState = {
 
 export const authSlice = createSlice({
   name: "auth",
-initialState,
+  initialState,
   reducers: {
     LogOut: (state, action) => {
       state.currentUser = null;
       localStorage.removeItem("customer");
     },
     setUserCredentials: (state, action) => {
-      state.currentUser = action.payload;
-      localStorage.setItem("customer", JSON.stringify(action.payload));
+      state.currentUser = action.payload.user;
+      localStorage.setItem("customer", JSON.stringify(action.payload.user));
     },
   },
 });

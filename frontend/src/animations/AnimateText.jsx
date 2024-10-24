@@ -1,55 +1,58 @@
-import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { slideup, LargeSlideUp } from "@/constants/utils/framer";
+
 // animattions to staggerText
-const AnimateText = ({ children }) => {
+const AnimateText = ({ children, type }) => {
+  const AnimateTextRef = useRef(null);
+  const inView = useInView(AnimateTextRef, {
+    margin: "0px 100px -120px 0px",
+  });
+  if (type === "largeText") {
+    return (
+      <span
+        ref={AnimateTextRef}
+        className="flex gap-[6px] flex-wrap w-full items-center relative"
+      >
+        {children?.split(" ").map((data, index) => {
+          return (
+            <div key={index} className="inline-flex hide relative">
+              <motion.span
+                variants={LargeSlideUp}
+                custom={index}
+                initial="initial"
+                animate={inView ? "animate" : "exit"}
+              >
+                {data === " " ? "\u00A0" : data}
+              </motion.span>
+            </div>
+          );
+        })}
+      </span>
+    );
+  }
   return (
-    <motion.div
-      initial="initial"
-      whileHover={"hover"}
-      className="relative max-w-fit cursor-pointer block overflow-hidden whitespace-nowrap"
-    >
-      <div className="flex items-center relative">
-        {children.split("").map((data, index) => {
+    <div className="w-full flex">
+      <div
+        ref={AnimateTextRef}
+        className="flex flex-wrap gap-[6px] w-full items-center relative"
+      >
+        {children?.split(" ").map((data, index) => {
           return (
-            <motion.span
-              key={index}
-              variants={{
-                initial: { y: "0px" },
-                hover: { y: "-100%" },
-              }}
-              transition={{
-                delay: index * 0.025,
-                duration: 0.25,
-                ease: "easeInOut",
-              }}
-              className="inline-block"
-            >
-              {data === " " ? "\u00A0" : data}
-            </motion.span>
+            <span key={index} className="inline-flex hide relative">
+              <motion.span
+                variants={slideup}
+                custom={index}
+                initial="initial"
+                animate={inView ? "animate" : "exit"}
+              >
+                {data === " " ? "\u00A0" : data}
+              </motion.span>
+            </span>
           );
         })}
       </div>
-      <div className="flex w-full items-center absolute inset-0">
-        {children.split("").map((data, index) => {
-          return (
-            <motion.span
-              key={index}
-              variants={{
-                initial: { y: "100%" },
-                hover: { y: "0" },
-              }}
-              transition={{
-                delay: index * 0.025,
-                duration: 0.25,
-                ease: "easeInOut",
-              }}
-            >
-              {data === " " ? "\u00A0" : data}
-            </motion.span>
-          );
-        })}
-      </div>
-    </motion.div>
+    </div>
   );
 };
 
