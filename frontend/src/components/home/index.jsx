@@ -7,7 +7,7 @@ import ProductList from "./ProductList";
 import Banners from './Banners'
 const HomeIndex = ({ products }) => {
   return (
-    <div className="w-full bg-[rgb(239,235,233)] flex flex-col">
+    <div className="w-full flex flex-col">
       <Navbar />
      
       <Hero products={products} />

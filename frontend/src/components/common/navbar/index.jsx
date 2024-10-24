@@ -38,31 +38,11 @@ export default function index() {
       <div className="pt-12 pb-4 fixed bg-transparent z-[80] top-0 left-0 w-full">
         <div className="w-[100%] md:w-[90%] px-4 flex items-center gap-2 justify-between max-w-custom mx-auto">
           <NavLink to={"/"} className=" flex items-center gap-1 justify-start">
-            <h4 className="flex flex-col text-3xl md:text-4xl family2 font-bold text-dark">
+            <h4 className="flex flex-col text-3xl md:text-4xl family3 font-normal text-[#000]">
               Productos
             </h4>
           </NavLink>
-          <div
-            style={{
-              backdropFilter: "blur(54px)",
-            }}
-            className="items-center py-1 rounded-full px-8 bg-[rgba(255,255,255,.8)] justify-center hidden lg:flex gap-12"
-          >
-            {linkData?.map((list, index) => {
-              return (
-                <NavLink
-                  end
-                  to={`/${list.path}`}
-                  key={index}
-                  className={`text-base md:text-lg hover:text-grey family2 font-black flex items-center gap-2 p-3 px-3 rounded-[40px]`}
-                >
-                  {/* <img src={list?.icon} className="w-4" alt="" /> */}
-                  <AnimateText children={list?.title} />
-                </NavLink>
-              );
-            })}
-          </div>
-
+         
           <div className="flex gap-1 md:gap-4 justify-end items-center">
             {currentUser ? (
               <div className=" relative">
@@ -104,4 +84,29 @@ export default function index() {
       <Sidebar />
     </>
   );
+  
 }
+
+
+
+
+//  {/* <div
+//             style={{
+//               backdropFilter: "blur(54px)",
+//             }}
+//             className="items-center py-1 rounded-full px-8 bg-[rgba(255,255,255,.8)] justify-center hidden lg:flex gap-12"
+//           >
+//             {linkData?.map((list, index) => {
+//               return (
+//                 <NavLink
+//                   end
+//                   to={`/${list.path}`}
+//                   key={index}
+//                   className={`text-base md:text-lg hover:text-grey family2 font-black flex items-center gap-2 p-3 px-3 rounded-[40px]`}
+//                 >
+//                   {/* <img src={list?.icon} className="w-4" alt="" /> */}
+//                   <AnimateText children={list?.title} />
+//                 </NavLink>
+//               );
+//             })}
+//           </div> */}

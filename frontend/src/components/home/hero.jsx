@@ -15,12 +15,15 @@ const Hero = ({ products }) => {
   // console.log(direction);
   // console.log(products)
   return (
-    <div className="w-full overflow-hidden">
+    <div
+      
+      className="w-full overflow-hidden"
+    >
       <div
         style={{
           gridTemplateColumns: "repeat(3, 100%)",
         }}
-        className="min-h-[900px] grid relative"
+        className="min-h-[900px] w-full grid relative"
       >
         {products?.slice(0, 3).map((data, index) => {
           return (
@@ -32,7 +35,12 @@ const Hero = ({ products }) => {
               }}
               className="w-full"
             >
-              <ProductHeroStyles className="flex w-[100%] pt-20 h-full relative justify-center items-center">
+              <ProductHeroStyles
+                style={{
+                  background: `${data?.heroBgColor}`,
+                }}
+                className="flex w-[100%] pt-20 h-full relative justify-center items-center"
+              >
                 <div
                   key={index}
                   className="hero_wrapper max-w-custom mx-auto flex h-full py-4 w-full relative justify-center items-center gap-4 flex-col"
@@ -42,7 +50,7 @@ const Hero = ({ products }) => {
                   </h1>
                   <h3
                     // style={{ fontWeight: "300" }}
-                    style={{ color: `${data?.color}` }}
+                    style={{ color: `${data?.heroColor}` }}
                     className="text-2xl z-20 font-normal text-center w-[80%] max-w-[600px] mx-auto"
                   >
                     {data?.description}
@@ -51,7 +59,7 @@ const Hero = ({ products }) => {
                     to={`/product/${data?.id}`}
                     style={{
                       transition: "all 1.5s var(--transition)",
-                      background: `${data?.background}`,
+                      background: `${data?.heroColor}`,
                     }}
                     className="h-20 w-52 text-white rounded-full uppercase family2 text-lg md:text-xl font-black"
                   >

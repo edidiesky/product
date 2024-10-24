@@ -26,6 +26,8 @@ export const productData = [
 
     availabilityCount: 5,
     servedCount: 0,
+    heroBgColor: "#FBE9E7",
+    heroColor: "#FF7043",
     userid: "66d5ab30e7f92493f279f7a5",
   },
   {
@@ -54,6 +56,8 @@ export const productData = [
 
     availabilityCount: 5,
     servedCount: 0,
+    heroBgColor: "#F1F8E9",
+    heroColor: "rgb(156, 204, 101)",
     userid: "66d5ab30e7f92493f279f7a5",
   },
   {
@@ -83,6 +87,8 @@ export const productData = [
 
     availabilityCount: 5,
     servedCount: 0,
+    heroBgColor: "#EFEBE9",
+    heroColor: "#8D6E63",
     userid: "66d5ab30e7f92493f279f7a5",
   },
   {
@@ -112,6 +118,8 @@ export const productData = [
 
     availabilityCount: null,
     servedCount: 0,
+    heroBgColor: "#F1F8E9",
+    heroColor: "#9CCC65",
     userid: "66d5ab30e7f92493f279f7a5",
   },
   {
@@ -137,6 +145,8 @@ export const productData = [
 
     availabilityCount: null,
     servedCount: 0,
+    heroBgColor: "#EFEBE9",
+    heroColor: "#8D6E63",
     userid: "66d5ab30e7f92493f279f7a5",
   },
 ];
