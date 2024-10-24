@@ -1,4 +1,4 @@
-"use client";
+;
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { BiCheck, BiChevronDown, BiChevronUp } from "react-icons/bi";

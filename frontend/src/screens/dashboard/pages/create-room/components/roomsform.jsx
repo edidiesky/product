@@ -1,4 +1,4 @@
-"use client";
+;
 import React, { useState } from "react";
 import { BiSearch, BiUpload } from "react-icons/bi";
 import {Link} from "react-router-dom";

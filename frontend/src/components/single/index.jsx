@@ -1,4 +1,4 @@
-// "use client";
+// ;
 import Navbar from "../common/navbar/index";
 import ProductInformation from "./ProductInformation";
 import ProductRecommendation from './ProductRecommendation'
